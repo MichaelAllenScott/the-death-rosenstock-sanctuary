@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "name": "The Arrogant Sons of Bitches",
+        "albums": [ 
+          {
+            "id": 1,
+            "name": "Built To Fail"
+          },
+          {
+            "id": 2,
+            "name": "Pornocracy"
+          }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Bomb The Music Industry!",
+        "albums": [ ]
+    },
+    {
+        "id": 3,
+        "name": "Jeff Rosenstock",
+        "albums": [ ]
+    },
+    {
+        "id": 4,
+        "name": "Antartigo Vespucci",
+        "albums": [ ]
+    }
+]
