@@ -1,4 +1,4 @@
-# the-death-rosenstock-sanctuary
+# ![The Death Rosenstock Sanctuary](./src/assets/logo.png)
 
 ## Project setup
 ```
