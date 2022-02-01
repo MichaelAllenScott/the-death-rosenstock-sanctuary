@@ -44,6 +44,10 @@
 export default {
   name: "Bands",
   mounted() {
+
+    const logo = document.querySelector('.logo-image');
+    logo.classList.remove("small");
+
     const asobWhite = document.querySelector('.asob-image');
     const asobHover = document.querySelector('.asob-hover-image');
 

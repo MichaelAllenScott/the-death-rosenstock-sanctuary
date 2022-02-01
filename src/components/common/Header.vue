@@ -19,7 +19,7 @@
   }
 </script>
 
-<style scoped>
+<style>
 
   .header-container {
     display: flex;
@@ -45,6 +45,10 @@
 
   .logo-image {
     max-height: 20vh;
+  }
+
+  .logo-image.small {
+    max-height: 13vh;
   }
 
   .material-icons {
