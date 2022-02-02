@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="panel hvr-grow-shadow" @click="headerClick">
-      <img class="panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Discography Chevron">
-      <img class="panel-header" src="../../../assets/panel-headers/disc.png" alt="Discography">
+      <img class="panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="More Info Chevron">
+      <img class="panel-header" src="../../../assets/panel-headers/info.png" alt="More Info">
     </div>
     <div class="panel-background" :class="{ closed: panelClosed }">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Neque laoreet suspendisse interdum consectetur libero id. Nibh sed pulvinar proin gravida hendrerit lectus a. Pulvinar mattis nunc sed blandit libero volutpat sed cras. Dolor sed viverra ipsum nunc aliquet bibendum. In eu mi bibendum neque egestas congue quisque egestas diam. Id velit ut tortor pretium viverra suspendisse. Sed felis eget velit aliquet sagittis id consectetur. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Aliquet bibendum enim facilisis gravida neque. Nibh nisl condimentum id venenatis a condimentum vitae. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Arcu bibendum at varius vel. Pellentesque massa placerat duis ultricies. Auctor elit sed vulputate mi sit amet mauris commodo quis. Vitae et leo duis ut diam quam nulla porttitor massa. Non sodales neque sodales ut etiam sit. Rutrum tellus pellentesque eu tincidunt tortor aliquam.
@@ -22,7 +22,7 @@ A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Commo
 <script>
 
   export default {
-    name: "DiscographyPanel",
+    name: "MoreInfoPanel",
     data() {
       return {
         panelClosed: false
