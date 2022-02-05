@@ -5,11 +5,39 @@
         "albums": [ 
           {
             "id": 1,
-            "name": "Built To Fail"
+            "name": "Built To Fail",
+            "year": 1998,
+            "ep": false
           },
           {
             "id": 2,
-            "name": "Pornocracy"
+            "name": "Pornocracy",
+            "year": 2000,
+            "ep": false
+          },
+          {
+            "id": 3,
+            "name": "The Apology",
+            "year": 2001,
+            "ep": true
+          },
+          {
+            "id": 4,
+            "name": "All The Little Ones Are Rotting",
+            "year": 2002,
+            "ep": true
+          },
+          {
+            "id": 5,
+            "name": "This Is What You Get",
+            "year": 2003,
+            "ep": false
+          },
+          {
+            "id": 6,
+            "name": "Three Cheers For Disappointment",
+            "year": 2006,
+            "ep": false
           }
         ]
     },

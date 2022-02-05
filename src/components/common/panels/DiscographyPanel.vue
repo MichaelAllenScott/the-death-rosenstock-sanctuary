@@ -5,15 +5,12 @@
       <img class="panel-header" src="../../../assets/panel-headers/disc.png" alt="Discography">
     </div>
     <div class="panel-background" :class="{ closed: panelClosed }">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Neque laoreet suspendisse interdum consectetur libero id. Nibh sed pulvinar proin gravida hendrerit lectus a. Pulvinar mattis nunc sed blandit libero volutpat sed cras. Dolor sed viverra ipsum nunc aliquet bibendum. In eu mi bibendum neque egestas congue quisque egestas diam. Id velit ut tortor pretium viverra suspendisse. Sed felis eget velit aliquet sagittis id consectetur. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Aliquet bibendum enim facilisis gravida neque. Nibh nisl condimentum id venenatis a condimentum vitae. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Arcu bibendum at varius vel. Pellentesque massa placerat duis ultricies. Auctor elit sed vulputate mi sit amet mauris commodo quis. Vitae et leo duis ut diam quam nulla porttitor massa. Non sodales neque sodales ut etiam sit. Rutrum tellus pellentesque eu tincidunt tortor aliquam.
-
-Sit amet mauris commodo quis. Iaculis urna id volutpat lacus laoreet non. Eget arcu dictum varius duis at. Risus viverra adipiscing at in tellus integer feugiat scelerisque. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes. Orci dapibus ultrices in iaculis nunc sed. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. A cras semper auctor neque vitae tempus quam. Purus in mollis nunc sed id semper.
-
-Tortor vitae purus faucibus ornare suspendisse sed. Vitae auctor eu augue ut lectus. Et pharetra pharetra massa massa ultricies mi. Arcu risus quis varius quam quisque id diam. Sit amet luctus venenatis lectus magna fringilla. At volutpat diam ut venenatis tellus in metus vulputate eu. Iaculis at erat pellentesque adipiscing. Arcu cursus vitae congue mauris rhoncus aenean vel elit. Aliquet sagittis id consectetur purus ut. Tincidunt ornare massa eget egestas purus.
-
-Arcu cursus euismod quis viverra nibh cras pulvinar mattis nunc. Sagittis purus sit amet volutpat consequat mauris nunc congue nisi. Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Leo a diam sollicitudin tempor. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est. Habitant morbi tristique senectus et netus et. Quisque sagittis purus sit amet volutpat consequat mauris. Sapien pellentesque habitant morbi tristique. Tempor orci eu lobortis elementum nibh tellus. Neque convallis a cras semper auctor neque vitae tempus quam. Gravida quis blandit turpis cursus in hac habitasse platea dictumst.
-
-A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Commodo ullamcorper a lacus vestibulum sed arcu non odio euismod. Eget nunc scelerisque viverra mauris in aliquam sem. Ac odio tempor orci dapibus ultrices in iaculis nunc sed. Aliquam malesuada bibendum arcu vitae elementum curabitur. Vestibulum sed arcu non odio euismod lacinia at quis. Ultrices vitae auctor eu augue ut. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Consequat semper viverra nam libero justo laoreet sit amet cursus. Sed euismod nisi porta lorem mollis. Pulvinar etiam non quam lacus. Iaculis eu non diam phasellus vestibulum lorem sed risus. Mollis nunc sed id semper risus in hendrerit. Erat pellentesque adipiscing commodo elit. Et leo duis ut diam quam nulla. Urna molestie at elementum eu facilisis sed. Nullam non nisi est sit amet facilisis magna etiam. Egestas dui id ornare arcu odio.
+      <div class="album-container">
+        <div class="album-item" v-for="album in albums" :key="album.id">
+          <img class="album-image" :src="getAlbumUrl(album)" alt="Discography">
+          <p class="album-title">{{album.name}}<br/>({{album.year}})</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +20,9 @@ A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Commo
 
   export default {
     name: "DiscographyPanel",
+    props: {
+      albums: Array
+    },
     data() {
       return {
         panelClosed: false
@@ -33,6 +33,10 @@ A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Commo
     methods: {
       headerClick() {
         this.panelClosed = !this.panelClosed;
+      },
+      getAlbumUrl(album) {
+        var images = require.context('../../../assets/album-images/asob/', false, /\.jpg$/)
+        return images('./' + album.id + ".jpg")
       }
     }
   };
@@ -78,13 +82,39 @@ A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Commo
     border-radius: 5px;
 
     overflow-y: hidden;
-    max-height: 35vh;
+    max-height: 100vh;
 
     transition-property: all;
     transition-duration: .3s;
   } .panel-background.closed {
     max-height: 0vh;
     padding: 0;
+  }
+
+  .album-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .album-item {
+    flex: 1;
+    min-width: 33.33%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 3em;
+  }
+
+  .album-image {
+    max-height: 35vh;
+    align-self: center;
+  }
+
+  .album-title {
+    align-self: center;
+    font-family: ManlyMenBB;
+    font-size: 1.5em;
+    text-align: center;
   }
 
   /* Grow Shadow */
@@ -103,5 +133,10 @@ A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Commo
     -webkit-transform: scale(1.02);
     transform: scale(1.02);
   }
+
+  @font-face {
+    font-family: ManlyMenBB;
+    src: url("../../../assets/fonts/ManlyMenBB_bold.otf") format("opentype");
+}
     
 </style>

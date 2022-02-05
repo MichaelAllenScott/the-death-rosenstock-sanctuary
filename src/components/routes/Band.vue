@@ -23,7 +23,7 @@
     </div>
     <div class="panel-background">
     </div>
-    <DiscographyPanel />
+    <DiscographyPanel :albums="this.bandData.albums"/>
     <MoreInfoPanel />
     <JeffsExplanationPanel />
   </div>
