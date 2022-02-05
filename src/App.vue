@@ -34,5 +34,6 @@
     background-image: url("./assets/chalkboard.jpg");
     background-repeat: repeat;
     margin: 0;
+    overflow-x: hidden;
   }
 </style>

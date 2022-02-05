@@ -23,7 +23,7 @@
     </div>
     <div class="panel-background">
     </div>
-    <DiscographyPanel :albums="this.bandData.albums"/>
+    <DiscographyPanel @navigate-to-album="navigateToAlbum" :albums="this.bandData.albums"/>
     <MoreInfoPanel />
     <JeffsExplanationPanel />
   </div>
@@ -73,14 +73,14 @@
       const backHover = document.querySelector('.back-arrow-hover');
 
       backWhite.addEventListener('mouseover', () => {
-          backHover.style.display = "block";
-          backWhite.style.display = "none";
+        backHover.style.display = "block";
+        backWhite.style.display = "none";
       });
 
       backHover.addEventListener('mouseout', () => {
-          backWhite.style.display = "block";
+        backWhite.style.display = "block";
         backHover.style.display = "none";
-    });
+      });
     },
     methods: {
       navigateToBands() {
@@ -88,6 +88,12 @@
         bandsContainer.classList.remove("animate__fadeInRightBig");
         bandsContainer.classList.add("animate__fadeOutRightBig");
         setTimeout(() => this.$router.push({name: 'bands'}), 300);
+      },
+      navigateToAlbum(albumId) {
+        const bandsContainer = document.querySelector('.band-container');
+        bandsContainer.classList.remove("animate__fadeInRightBig");
+        bandsContainer.classList.add("animate__fadeOutLeftBig");
+        setTimeout(() => this.$router.push({name: 'album-asob', params: { albumId: albumId }}), 300);
       }
     }
   };

@@ -1,8 +1,42 @@
 <template>
-  <transition>
-    <div class="section">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <div class="album-container animate__animated animate__fadeInRightBig animate__faster">
+    <div class="panel-top">
+        <img class="back-arrow" @click="navigateToBand()" src="../../assets/icons/back-arrow.png" alt="Back">
+        <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
+              style="display: none" 
+              @click="navigateToBand()" 
+              src="../../assets/icons/back-arrow-hover.png" 
+              alt="Back">
+        <img class="panel-header" src="../../assets/panel-headers/album.png" alt="Album">
+      <div></div>
     </div>
-  </transition>
+    <div class="panel-background">
+      <img class="album-image" :src="getAlbumUrl(albumData.id)" :alt="albumData.name">
+      <div class="album-title-container">
+        <p class="album-title">{{albumData.name}}</p>
+        <img class="album-title-line" src="../../assets/line.png" alt="Decorative Line">
+        <p class="description-text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa massa ultricies mi quis hendrerit dolor magna. Adipiscing vitae proin sagittis nisl rhoncus mattis. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Ipsum faucibus vitae aliquet nec ullamcorper sit. Elit sed vulputate mi sit amet mauris. Senectus et netus et malesuada fames. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Quam quisque id diam vel quam elementum. Mi bibendum neque egestas congue quisque egestas diam in. Bibendum est ultricies integer quis auctor elit sed. Etiam erat velit scelerisque in dictum non consectetur a. Lacus laoreet non curabitur gravida arcu. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+
+Leo a diam sollicitudin tempor. Odio ut enim blandit volutpat. Sed euismod nisi porta lorem mollis aliquam ut porttitor leo. Cursus in hac habitasse platea dictumst quisque sagittis purus. Ultrices mi tempus imperdiet nulla. Varius morbi enim nunc faucibus a. Malesuada pellentesque elit eget gravida cum. Aliquam nulla facilisi cras fermentum odio eu. Dui faucibus in ornare quam viverra. Tincidunt vitae semper quis lectus nulla at volutpat. Diam vel quam elementum pulvinar etiam non quam lacus. Justo laoreet sit amet cursus sit amet dictum sit. Elit pellentesque habitant morbi tristique. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Porttitor massa id neque aliquam vestibulum. Velit dignissim sodales ut eu sem. Neque sodales ut etiam sit.
+
+Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut morbi tincidunt augue interdum. Ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Nulla aliquet enim tortor at auctor. Consequat semper viverra nam libero justo laoreet sit. Lobortis feugiat vivamus at augue eget. Suscipit adipiscing bibendum est ultricies integer. Nunc lobortis mattis aliquam faucibus. Vestibulum sed arcu non odio euismod lacinia at quis. Posuere ac ut consequat semper viverra nam libero justo. Euismod nisi porta lorem mollis aliquam ut porttitor leo a. Nulla facilisi etiam dignissim diam. Sit amet dictum sit amet. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus. Mauris ultrices eros in cursus turpis. Est velit egestas dui id ornare arcu odio ut. Enim neque volutpat ac tincidunt. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Id consectetur purus ut faucibus pulvinar elementum integer enim. Varius quam quisque id diam vel quam
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa massa ultricies mi quis hendrerit dolor magna. Adipiscing vitae proin sagittis nisl rhoncus mattis. Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Ipsum faucibus vitae aliquet nec ullamcorper sit. Elit sed vulputate mi sit amet mauris. Senectus et netus et malesuada fames. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Quam quisque id diam vel quam elementum. Mi bibendum neque egestas congue quisque egestas diam in. Bibendum est ultricies integer quis auctor elit sed. Etiam erat velit scelerisque in dictum non consectetur a. Lacus laoreet non curabitur gravida arcu. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+
+Leo a diam sollicitudin tempor. Odio ut enim blandit volutpat. Sed euismod nisi porta lorem mollis aliquam ut porttitor leo. Cursus in hac habitasse platea dictumst quisque sagittis purus. Ultrices mi tempus imperdiet nulla. Varius morbi enim nunc faucibus a. Malesuada pellentesque elit eget gravida cum. Aliquam nulla facilisi cras fermentum odio eu. Dui faucibus in ornare quam viverra. Tincidunt vitae semper quis lectus nulla at volutpat. Diam vel quam elementum pulvinar etiam non quam lacus. Justo laoreet sit amet cursus sit amet dictum sit. Elit pellentesque habitant morbi tristique. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Porttitor massa id neque aliquam vestibulum. Velit dignissim sodales ut eu sem. Neque sodales ut etiam sit.
+
+Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut morbi 
+        </p>
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -17,21 +51,115 @@
     data() {
       return {
         bandData: {
-          name: ""
+          name: "",
+          id: 0
         },
         albumData: {
-          name: ""
+          name: "",
+          id: 0
         }
       }
+    },
+    mounted() {
+      const logo = document.querySelector('.logo-image');
+      logo.classList.add("small");
+
+      const backWhite = document.querySelector('.back-arrow');
+      const backHover = document.querySelector('.back-arrow-hover');
+
+      backWhite.addEventListener('mouseover', () => {
+        backHover.style.display = "block";
+        backWhite.style.display = "none";
+      });
+
+      backHover.addEventListener('mouseout', () => {
+        backWhite.style.display = "block";
+        backHover.style.display = "none";
+      });
     },
     created() {
       let albumId = this.$route.params.albumId;
       this.bandData = bandDataFunctions.retrieveBandDataWithId(this.bandEnum, allBandData);
       this.albumData = bandDataFunctions.retrieveAlbumDataWithBandAndId(albumId, this.bandData);
+    },
+    methods: {
+      navigateToBand() {
+        const albumContainer = document.querySelector('.album-container');
+        albumContainer.classList.remove("animate__fadeInRightBig");
+        albumContainer.classList.add("animate__fadeOutRightBig");
+        setTimeout(() => this.$router.push({name: 'band-asob'}), 300);
+      },
+      getAlbumUrl(albumId) {
+        var images = require.context('../../assets/album-images/asob/', false, /\.jpg$/);
+        return images('./' + albumId + ".jpg");
+      }
     }
   };
 </script>
 
 <style scoped>
+  .panel-top {
+    background-image: linear-gradient(#E81648, #AD0F35);
+    padding: 1em;
+    margin: 0 12em 0 12em;
+    border-radius: 5px;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
+  .panel-header {
+    max-height: 7vh;
+    margin-left: .8em;
+  }
+
+  .back-arrow {
+    max-height: 5vh;
+  }
+
+  .back-arrow-hover {
+    max-height: 5vh;
+  }
+
+  .album-image {
+    max-height: 40vh;
+    filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.5));
+  }
+  
+  .album-title {
+    font-family: ManlyMenBB;
+    font-size: 2em;
+    text-align: center;
+    margin: 0;
+  }
+
+  .album-title-line {
+    margin: 0 15% 0 15%;
+  }
+
+  .description-text {
+    margin: 1em 2em 0 2em;
+  }
+
+  .album-title-container {
+    margin: 0 1em 0 1em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .panel-background {
+    background-image: url("../../assets/old_wall.png");
+    background-repeat: repeat;
+    padding: 3em;
+    margin: 0 15em 0 15em;
+    z-index: -1;
+    position: relative;
+    border: #AD0F35 .3em solid;
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+  }
 </style>

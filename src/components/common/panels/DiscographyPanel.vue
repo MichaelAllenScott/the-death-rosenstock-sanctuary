@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="discography-container">
     <div class="panel hvr-grow-shadow" @click="headerClick">
       <img class="panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Discography Chevron">
       <img class="panel-header" src="../../../assets/panel-headers/disc.png" alt="Discography">
@@ -7,7 +7,7 @@
     <div class="panel-background" :class="{ closed: panelClosed }">
       <div class="album-container">
         <div class="album-item" v-for="album in albums" :key="album.id">
-          <img class="album-image" :src="getAlbumUrl(album)" alt="Discography">
+          <img class="album-image hvr-grow-shadow-fast" :src="getAlbumUrl(album)" @click="navigateToAlbum(album.id)" alt="Discography">
           <p class="album-title">{{album.name}}<br/>({{album.year}})</p>
         </div>
       </div>
@@ -37,6 +37,9 @@
       getAlbumUrl(album) {
         var images = require.context('../../../assets/album-images/asob/', false, /\.jpg$/)
         return images('./' + album.id + ".jpg")
+      },
+      navigateToAlbum(albumId) {
+        this.$emit('navigate-to-album', albumId);
       }
     }
   };
@@ -77,7 +80,6 @@
     padding: 2em;
     margin: -1em 15em .5em 15em;
     z-index: -1;
-    position: relative;
     border: #AD0F35 .3em solid;
     border-radius: 5px;
 
@@ -104,7 +106,6 @@
     flex-direction: column;
     margin-bottom: 3em;
   }
-
   .album-image {
     max-height: 35vh;
     align-self: center;
@@ -133,6 +134,36 @@
     -webkit-transform: scale(1.02);
     transform: scale(1.02);
   }
+  .hvr-grow-shadow-fast {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0) rotate(0deg);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.15s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+  }
+  .hvr-grow-shadow-fast:hover, .hvr-grow-shadow-fast:focus, .hvr-grow-shadow-fast:active {
+    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.10);
+    transform: scale(1.10) rotate(-3deg);
+  }
+  .hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
 
   @font-face {
     font-family: ManlyMenBB;
