@@ -36,15 +36,21 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
         
       </div>
     </div>
+    <SongsPanel :songs="albumData.songs"/>
+    
   </div>
 </template>
 
 <script>
   import allBandData from "@/data/bands.json";
   import bandDataFunctions from "@/common/commonFunctions";
+  import SongsPanel from "@/components/common/panels/SongsPanel";
 
   export default {
     name: "Album",
+    components: {
+      SongsPanel
+    },
     props: {
       bandEnum: Number
     },
@@ -131,6 +137,7 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
   .album-title {
     font-family: ManlyMenBB;
     font-size: 2em;
+    letter-spacing: -0.05em;
     text-align: center;
     margin: 0;
   }

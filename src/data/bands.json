@@ -37,7 +37,61 @@
             "id": 6,
             "name": "Three Cheers For Disappointment",
             "year": 2006,
-            "ep": false
+            "ep": false,
+            "songs": [
+              {
+                "id": 1,
+                "name": "The Last Bell I Will Ever Hear"
+              },
+              {
+                "id": 2,
+                "name": "(I Must Be A Proctologist Because) All I Do Is Deal with Assholes"
+              },
+              {
+                "id": 3,
+                "name": "So Let's Go Nowhere"
+              },
+              {
+                "id": 4,
+                "name": "Kill The President"
+              },
+              {
+                "id": 5,
+                "name": "People Pops & Fudgesickles For The Hit Factory"
+              },
+              {
+                "id": 6,
+                "name": "Rocket Rocket Rocketship"
+              },
+              {
+                "id": 7,
+                "name": "1-800-Alarm-Me"
+              },
+              {
+                "id": 8,
+                "name": "I've Got Enemies In High Places"
+              },
+              {
+                "id": 9,
+                "name": "Disappointment At The Taco Bell"
+              },
+              {
+                "id": 10,
+                "name": "Piss Off"
+              },
+              {
+                "id": 11,
+                "name": "Have Fun Rotting By Yourself"
+              },
+              {
+                "id": 12,
+                "name": "Yeah, I Don't Know What It's Like to Be Around a Bunch of Hipsters"
+              },
+              {
+                "id": 13,
+                "name": "Last On My List"
+              }
+            ]
           }
         ]
     },

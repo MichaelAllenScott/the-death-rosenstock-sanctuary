@@ -1,14 +1,14 @@
 <template>
-  <div class="discography-container">
+  <div class="songs-container">
     <div class="panel hvr-grow-shadow" @click="headerClick">
-      <img class="panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Discography Chevron">
-      <img class="panel-header" src="../../../assets/panel-headers/disc.png" alt="Discography">
+      <img class="panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Songs Chevron">
+      <img class="panel-header" src="../../../assets/panel-headers/songs.png" alt="Songs">
     </div>
     <div class="panel-background" :class="{ closed: panelClosed }">
-      <div class="album-container">
-        <div class="album-item" v-for="album in albums" :key="album.id">
-          <img class="album-image hvr-grow-shadow-fast" :src="getAlbumUrl(album)" @click="navigateToAlbum(album.id)" alt="Discography">
-          <p class="album-title">{{album.name}}<br/>({{album.year}})</p>
+      <div class="songs-container">
+        <div class="songs-item" v-for="(song, index) in songs" :key="song.id">
+          <p class="song-title">{{song.name}}</p>
+          <img v-if="index !== songs.length - 1" class="song-title-line" src="../../../assets/line.png" alt="Decorative Line">
         </div>
       </div>
     </div>
@@ -19,9 +19,9 @@
 <script>
 
   export default {
-    name: "DiscographyPanel",
+    name: "SongsPanel",
     props: {
-      albums: Array
+      songs: Array
     },
     data() {
       return {
@@ -38,8 +38,8 @@
         var images = require.context('../../../assets/album-images/asob/', false, /\.jpg$/)
         return images('./' + album.id + ".jpg")
       },
-      navigateToAlbum(albumId) {
-        this.$emit('navigate-to-album', albumId);
+      navigateToAlbum(albumId, songId) {
+        this.$emit('navigate-to-song', albumId, songId);
       }
     }
   };
@@ -93,30 +93,35 @@
     padding: 0;
   }
 
-  .album-container {
+  .songs-item {
     display: flex;
-    flex-wrap: wrap;
-  }
-
-  .album-item {
-    flex: 1;
-    min-width: 33.33%;
-    display: flex;
-    justify-content: center;
     flex-direction: column;
-    margin-bottom: 3em;
-  }
-  .album-image {
-    max-height: 35vh;
-    align-self: center;
+    justify-content: center;
   }
 
-  .album-title {
+  .song-title {
+    cursor: pointer;
     align-self: center;
     font-family: ManlyMenBB;
     font-size: 1.5em;
     text-align: center;
     letter-spacing: -0.05em;
+    margin: .6em 0px;
+    -webkit-transition-duration: 0.17s;
+    transition-duration: 0.17s;
+    -webkit-transition-property: font-size, transform;
+    transition-property: font-size, transform;
+    z-index: 1;
+  } .song-title:hover {
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+
+  .song-title-line {
+    max-width: 50%;
+    align-self: center;
+    opacity: 75%;
+    z-index: 0;
   }
 
   /* Grow Shadow */
