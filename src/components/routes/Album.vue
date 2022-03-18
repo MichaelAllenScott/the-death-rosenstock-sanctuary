@@ -36,7 +36,7 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
         
       </div>
     </div>
-    <SongsPanel :songs="albumData.songs"/>
+    <SongsPanel @navigate-to-song="navigateToSong" :songs="albumData.songs" :albumId="albumData.id"/>
     
   </div>
 </template>
@@ -95,6 +95,12 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
         albumContainer.classList.add("animate__fadeOutRightBig");
         setTimeout(() => this.$router.push({name: 'band-asob'}), 300);
       },
+      navigateToSong(songId) {
+        const albumContainer = document.querySelector('.album-container');
+        albumContainer.classList.remove("animate__fadeInRightBig");
+        albumContainer.classList.add("animate__fadeOutLeftBig");
+        setTimeout(() => this.$router.push({name: 'song-asob', params: { albumId: this.albumData.id, songId: songId }}), 300);
+      },
       getAlbumUrl(albumId) {
         var images = require.context('../../assets/album-images/asob/', false, /\.jpg$/);
         return images('./' + albumId + ".jpg");
@@ -104,31 +110,8 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
 </script>
 
 <style scoped>
-  .panel-top {
-    background-image: linear-gradient(#E81648, #AD0F35);
-    padding: 1em;
-    margin: 0 12em 0 12em;
-    border-radius: 5px;
-    z-index: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .panel-header {
-    max-height: 7vh;
-    margin-left: .8em;
-  }
-
-  .back-arrow {
-    max-height: 5vh;
-  }
-
-  .back-arrow-hover {
-    max-height: 5vh;
-  }
-
+  @import "../../common/main.css";
+  
   .album-image {
     max-height: 40vh;
     filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.5));
@@ -155,18 +138,5 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
     display: flex;
     flex-direction: column;
     width: 100%;
-  }
-
-  .panel-background {
-    background-image: url("../../assets/old_wall.png");
-    background-repeat: repeat;
-    padding: 3em;
-    margin: 0 15em 0 15em;
-    z-index: -1;
-    position: relative;
-    border: #AD0F35 .3em solid;
-    border-top: 0;
-    border-radius: 0 0 5px 5px;
-    display: flex;
   }
 </style>

@@ -32,6 +32,20 @@ const bandDataFunctions = {
     }
   
     return albumData;
+  },
+
+  retrieveSongDataWithBandAndId(songId, albumId, bandData) {
+    let songData = {};
+    let album = bandData.albums.find(x => x.id == albumId);
+
+    if (album) {
+      let song = album.songs.find(x => x.id == songId);
+      if (song) {
+        songData = song; 
+      }
+    }
+  
+    return songData;
   }
 
 };

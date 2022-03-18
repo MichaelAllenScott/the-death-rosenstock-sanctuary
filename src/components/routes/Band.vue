@@ -4,11 +4,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
   <div class="band-container animate__animated animate__fadeInRightBig animate__faster">
-    <!--div class="band-header-image-container">
-      <div class="band-header-image-item">
-        <img  class="band-image" src="../../assets/bands-component/asob-hover.png" alt="Arrogant Sons of Bitches">
-      </div>
-    </div-->
     <div class="panel-top">
       <div>
         <img class="back-arrow" @click="navigateToBands()" src="../../assets/icons/back-arrow.png" alt="Back">
@@ -87,7 +82,7 @@
         const bandsContainer = document.querySelector('.band-container');
         bandsContainer.classList.remove("animate__fadeInRightBig");
         bandsContainer.classList.add("animate__fadeOutRightBig");
-        setTimeout(() => this.$router.push({name: 'bands'}), 300);
+        setTimeout(() => this.$router.push({name: 'home'}), 300);
       },
       navigateToAlbum(albumId) {
         const bandsContainer = document.querySelector('.band-container');
@@ -101,25 +96,7 @@
 
 
 <style scoped>
-  .panel-top {
-    background-image: linear-gradient(#E81648, #AD0F35);
-    padding: 1em;
-    margin: 0 12em 0 12em;
-    border-radius: 5px;
-    z-index: 1;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .back-arrow {
-    max-height: 5vh;
-  }
-
-  .back-arrow-hover {
-    max-height: 5vh;
-  }
+  @import "../../common/main.css";
 
   .band-header-image-container {
     display: flex;
@@ -134,15 +111,4 @@
     position: relative;
   }
 
-  .panel-background {
-    background-image: url("../../assets/old_wall.png");
-    background-repeat: repeat;
-    padding: 18em;
-    margin: 0 15em 0 15em;
-    z-index: -1;
-    position: relative;
-    border: #AD0F35 .3em solid;
-    border-top: 0;
-    border-radius: 0 0 5px 5px;
-  }
 </style>
