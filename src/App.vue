@@ -21,7 +21,7 @@
     created() {
       let introCookie = this.$cookies.get("tdrs-intro");
 
-      if (introCookie) {
+      if (!introCookie) {
         this.$cookies.set("tdrs-intro", true);
         this.showIntro = true;
       }

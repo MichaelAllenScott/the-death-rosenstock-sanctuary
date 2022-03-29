@@ -3,7 +3,7 @@
     <div class="logo-flex-item">
       <img class="logo-image" src="../assets/logo.png" alt="The Death Rosenstock Sanctuary">
     </div>
-    <video autoplay loop muted id="myVideo">
+    <video autoplay loop id="myVideo">
       <source src="../assets/videos/tdrs-intro.mp4" type="video/mp4">
     </video>
   </div>
@@ -13,8 +13,11 @@
 export default {
   name: "Intro",
   mounted() {
-    //var vid = document.getElementById("myVideo");
-    //vid.play();
+    setTimeout(function () {
+        var vid = document.getElementById("myVideo");
+        vid.play();
+    }, 5000);
+    
   },
 };
 </script>
