@@ -10,6 +10,22 @@
   justify-content: space-between;
 }
 
+.panel-top.asob {
+  background-image: linear-gradient(#E81648, #AD0F35);
+}
+
+.panel-top.btmi {
+  background-image: linear-gradient(#56af5b, #3d8041);
+}
+
+.panel-top.jr {
+  background-image: linear-gradient(#a839db, #812da8);
+}
+
+.panel-top.av {
+  background-image: linear-gradient(#19dae7, #129ea8);
+}
+
 .panel-header {
   max-height: 7vh;
   margin-left: .8em;
@@ -28,6 +44,22 @@
   display: flex;
 }
 
+.panel-background.asob {
+  border: #AD0F35 .3em solid;
+}
+
+.panel-background.btmi {
+  border: #3d8041 .3em solid;
+}
+
+.panel-background.jr {
+  border: #812da8 .3em solid;
+}
+
+.panel-background.av {
+  border: #129ea8 .3em solid;
+}
+
 .collapsible-panel {
   background-image: linear-gradient(#E81648, #AD0F35);
   padding: .8em;
@@ -35,6 +67,22 @@
   border-radius: 5px;
   display: flex;
   align-items: center;
+}
+
+.collapsible-panel.asob {
+  background-image: linear-gradient(#E81648, #AD0F35);
+}
+
+.collapsible-panel.btmi {
+  background-image: linear-gradient(#56af5b, #3d8041);
+}
+
+.collapsible-panel.jr {
+  background-image: linear-gradient(#a839db, #812da8);
+}
+
+.collapsible-panel.av {
+  background-image: linear-gradient(#19dae7, #129ea8);
 }
 
 .collapsible-panel:hover {
@@ -74,6 +122,23 @@
   transition-property: all;
   transition-duration: .3s;
 }
+
+.collapsible-panel-background.asob {
+  border: #AD0F35 .3em solid;
+}
+
+.collapsible-panel-background.btmi {
+  border: #3d8041 .3em solid;
+}
+
+.collapsible-panel-background.jr {
+  border: #812da8 .3em solid;
+}
+
+.collapsible-panel-background.av {
+  border: #129ea8 .3em solid;
+}
+
 
 .collapsible-panel-background.closed {
   max-height: 0vh;

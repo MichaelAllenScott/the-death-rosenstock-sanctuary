@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="collapsible-panel hvr-grow-shadow" @click="headerClick">
+    <div v-bind:class="['collapsible-panel', 'hvr-grow-shadow', bandAbbrv]" @click="headerClick">
       <img class="collapsible-panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Jeff's Explanation Chevron">
       <img class="collapsible-panel-header" src="../../../assets/panel-headers/jeffs-explanation.png" alt="Jeff's Explanation">
     </div>
-    <div class="collapsible-panel-background" :class="{ closed: panelClosed }">
+    <div v-bind:class="['collapsible-panel-background', bandAbbrv, { closed: panelClosed }]">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Neque laoreet suspendisse interdum consectetur libero id. Nibh sed pulvinar proin gravida hendrerit lectus a. Pulvinar mattis nunc sed blandit libero volutpat sed cras. Dolor sed viverra ipsum nunc aliquet bibendum. In eu mi bibendum neque egestas congue quisque egestas diam. Id velit ut tortor pretium viverra suspendisse. Sed felis eget velit aliquet sagittis id consectetur. Amet mattis vulputate enim nulla aliquet porttitor lacus luctus. Aliquet bibendum enim facilisis gravida neque. Nibh nisl condimentum id venenatis a condimentum vitae. Consequat mauris nunc congue nisi vitae suscipit tellus mauris a. Arcu bibendum at varius vel. Pellentesque massa placerat duis ultricies. Auctor elit sed vulputate mi sit amet mauris commodo quis. Vitae et leo duis ut diam quam nulla porttitor massa. Non sodales neque sodales ut etiam sit. Rutrum tellus pellentesque eu tincidunt tortor aliquam.
 
 Sit amet mauris commodo quis. Iaculis urna id volutpat lacus laoreet non. Eget arcu dictum varius duis at. Risus viverra adipiscing at in tellus integer feugiat scelerisque. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Cum sociis natoque penatibus et magnis dis parturient montes. Orci dapibus ultrices in iaculis nunc sed. Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt. A cras semper auctor neque vitae tempus quam. Purus in mollis nunc sed id semper.
@@ -23,6 +23,9 @@ A condimentum vitae sapien pellentesque habitant morbi tristique senectus. Commo
 
   export default {
     name: "JeffsExplanationPanel",
+    props: {
+      bandAbbrv: String
+    },
     data() {
       return {
         panelClosed: false

@@ -11,13 +11,13 @@
       <img class="asob-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/asob.png" alt="Arrogant Sons of Bitches">
       <img  class="asob-hover-image animate__animated animate__bounceIn animate__faster" 
             style="display: none" 
-            @click="navigateToBand()" 
+            @click="navigateToBand('asob')" 
             src="../../assets/bands-component/asob-hover.png" 
             alt="Arrogant Sons of Bitches">
       <img class="btmi-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/btmi.png" alt="Bomb The Music Industry">
       <img  class="btmi-hover-image  animate__animated animate__bounceIn animate__faster" 
             style="display: none" 
-            @click="this.$router.push({name: 'band-btmi'})" 
+            @click="navigateToBand('btmi')" 
             src="../../assets/bands-component/btmi-hover.png" 
             alt="Bomb The Music Industry!">
     </div>
@@ -25,13 +25,13 @@
       <img class="jr-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/jr.png" alt="Jeff Rosenstock">
       <img  class="jr-hover-image animate__animated animate__bounceIn animate__faster" 
             style="display: none" 
-            @click="this.$router.push({name: 'band-jr'})" 
+            @click="navigateToBand('jr')" 
             src="../../assets/bands-component/jr-hover.png" 
             alt="Jeff Rosenstock">
       <img class="av-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/av.png" alt="Antarctigo Vespucci">
       <img  class="av-hover-image animate__animated animate__bounceIn animate__faster" 
             style="display: none" 
-            @click="this.$router.push({name: 'band-av'})" 
+            @click="navigateToBand('av')" 
             src="../../assets/bands-component/av-hover.png" 
             alt="Antarctigo Vespucci">
     </div>
@@ -101,12 +101,13 @@ export default {
     });
   },
   methods: {
-    navigateToBand() {
+    navigateToBand(abbrv) {
       const bandsContainer = document.querySelector('.bands-container');
       bandsContainer.classList.add("animate__animated");
       bandsContainer.classList.add("animate__faster");
       bandsContainer.classList.add("animate__fadeOutLeftBig");
-      setTimeout(() => this.$router.push({name: 'band-asob'}), 300);
+      let routeName = 'band-' + abbrv;
+      setTimeout(() => this.$router.push({name: routeName}), 300);
     }
   }
 };

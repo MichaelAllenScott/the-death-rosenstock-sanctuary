@@ -4,7 +4,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
   <div class="song-container animate__animated animate__fadeInRightBig animate__faster">
-    <div class="panel-top">
+    <div v-bind:class="['panel-top', bandAbbrv]">
         <img class="back-arrow" @click="navigateToAlbum()" src="../../assets/icons/back-arrow.png" alt="Back">
         <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
               style="display: none" 
@@ -14,7 +14,7 @@
         <img class="panel-header" src="../../assets/panel-headers/song.png" alt="Album">
       <div></div>
     </div>
-    <div class="panel-background">
+    <div v-bind:class="['panel-background', bandAbbrv]">
       <div class="song-title-container">
         <p class="song-title">{{songData.name}}</p>
         <img class="song-title-line" src="../../assets/line.png" alt="Decorative Line">
@@ -34,7 +34,8 @@
   export default {
     name: "Song",
     props: {
-      bandEnum: Number
+      bandEnum: Number,
+      bandAbbrv: String
     },
     data() {
       return {

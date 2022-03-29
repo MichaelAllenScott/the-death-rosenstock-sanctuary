@@ -1,10 +1,10 @@
 <template>
   <div class="songs-container">
-    <div class="collapsible-panel hvr-grow-shadow" @click="headerClick">
+    <div v-bind:class="['collapsible-panel', 'hvr-grow-shadow', bandAbbrv]" @click="headerClick">
       <img class="collapsible-panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Songs Chevron">
       <img class="collapsible-panel-header" src="../../../assets/panel-headers/songs.png" alt="Songs">
     </div>
-    <div class="collapsible-panel-background" :class="{ closed: panelClosed }">
+    <div v-bind:class="['collapsible-panel-background', bandAbbrv, { closed: panelClosed }]">
       <div class="songs-container">
         <div class="songs-item" v-for="(song, index) in songs" :key="song.id">
           <p class="song-title" @click="navigateToSong(song.id)">{{song.name}}</p>
@@ -22,7 +22,8 @@
     name: "SongsPanel",
     props: {
       songs: Array,
-      albumId: Number
+      albumId: Number,
+      bandAbbrv: String
     },
     data() {
       return {

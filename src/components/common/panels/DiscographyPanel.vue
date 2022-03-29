@@ -1,10 +1,10 @@
 <template>
   <div class="discography-container">
-    <div class="collapsible-panel hvr-grow-shadow" @click="headerClick">
+    <div v-bind:class="['collapsible-panel', 'hvr-grow-shadow', bandAbbrv]" @click="headerClick">
       <img class="collapsible-panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Discography Chevron">
       <img class="collapsible-panel-header" src="../../../assets/panel-headers/disc.png" alt="Discography">
     </div>
-    <div class="collapsible-panel-background" :class="{ closed: panelClosed }">
+    <div v-bind:class="['collapsible-panel-background', bandAbbrv, { closed: panelClosed }]">
       <div class="album-container">
         <div class="album-item" v-for="album in albums" :key="album.id">
           <img class="album-image hvr-grow-shadow-fast" :src="getAlbumUrl(album)" @click="navigateToAlbum(album.id)" alt="Discography">
@@ -21,7 +21,8 @@
   export default {
     name: "DiscographyPanel",
     props: {
-      albums: Array
+      albums: Array,
+      bandAbbrv: String
     },
     data() {
       return {

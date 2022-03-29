@@ -4,7 +4,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
   <div class="album-container animate__animated animate__fadeInRightBig animate__faster">
-    <div class="panel-top">
+    <div v-bind:class="['panel-top', bandAbbrv]">
         <img class="back-arrow" @click="navigateToBand()" src="../../assets/icons/back-arrow.png" alt="Back">
         <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
               style="display: none" 
@@ -14,7 +14,7 @@
         <img class="panel-header" src="../../assets/panel-headers/album.png" alt="Album">
       <div></div>
     </div>
-    <div class="panel-background">
+    <div v-bind:class="['panel-background', bandAbbrv]">
       <img class="album-image" :src="getAlbumUrl(albumData.id)" :alt="albumData.name">
       <div class="album-title-container">
         <p class="album-title">{{albumData.name}}</p>
@@ -36,7 +36,7 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
         
       </div>
     </div>
-    <SongsPanel @navigate-to-song="navigateToSong" :songs="albumData.songs" :albumId="albumData.id"/>
+    <SongsPanel @navigate-to-song="navigateToSong" :songs="albumData.songs" :albumId="albumData.id" :bandAbbrv="bandAbbrv"/>
     
   </div>
 </template>
@@ -52,7 +52,8 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
       SongsPanel
     },
     props: {
-      bandEnum: Number
+      bandEnum: Number,
+      bandAbbrv: String
     },
     data() {
       return {
