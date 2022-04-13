@@ -1,20 +1,22 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <div class="band-container animate__animated animate__fadeInRightBig animate__faster">
+  <Header />
+  <div class="band-container animate__animated animate__fadeIn animate__fastest">
     <div v-bind:class="['panel-top', bandAbbrv]">
-      <div>
-        <img class="back-arrow" @click="navigateToBands()" src="../../assets/icons/back-arrow.png" alt="Back">
-        <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
-              style="display: none" 
-              @click="navigateToBands()" 
-              src="../../assets/icons/back-arrow-hover.png" 
-              alt="Back">
+      <div class="back-flex-group">
+        <div>
+          <img class="back-arrow" @click="navigateToBands()" src="../../assets/icons/back-arrow.png" alt="Back">
+          <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
+                style="display: none" 
+                @click="navigateToBands()" 
+                src="../../assets/icons/back-arrow-hover.png" 
+                alt="Back">
+          </div>
+          <div>
+            <img class="back-bands-image" src="../../assets/bands-component/band-title.png" alt="Bands">
+          </div>
       </div>
-      <img class="band-image" :src="getBandImageSrc()" alt="Arrogant Sons of Bitches">
-      <div></div>
+      <img v-bind:class="['band-image', bandAbbrv]" :src="getBandImageSrc()" alt="Arrogant Sons of Bitches">
+      <div class="end-flex-group"></div>
     </div>
     <div v-bind:class="['panel-background', bandAbbrv]">
     </div>
@@ -26,6 +28,7 @@
 
 
 <script>
+  import Header from  "@/components/common/Header.vue";
   import allBandData from "@/data/bands.json";
   import bandDataFunctions from "@/common/commonFunctions";
   import DiscographyPanel from "@/components/common/panels/DiscographyPanel";
@@ -35,6 +38,7 @@
   export default {
     name: "Band",
     components: {
+      Header,
       DiscographyPanel,
       MoreInfoPanel,
       JeffsExplanationPanel
@@ -62,6 +66,8 @@
       this.bandData = bandDataFunctions.retrieveBandDataWithId(this.bandEnum, allBandData)
     },
     mounted() {
+      window.scrollTo(0, 0);
+
       const logo = document.querySelector('.logo-image');
       logo.classList.add("small");
 
@@ -81,14 +87,12 @@
     methods: {
       navigateToBands() {
         const bandsContainer = document.querySelector('.band-container');
-        bandsContainer.classList.remove("animate__fadeInRightBig");
-        bandsContainer.classList.add("animate__fadeOutRightBig");
+        bandsContainer.classList.remove("animate__fadeIn");
         setTimeout(() => this.$router.push({name: 'home'}), 300);
       },
       navigateToAlbum(albumId) {
         const bandsContainer = document.querySelector('.band-container');
-        bandsContainer.classList.remove("animate__fadeInRightBig");
-        bandsContainer.classList.add("animate__fadeOutLeftBig");
+        bandsContainer.classList.remove("animate__fadeIn");
         setTimeout(() => this.$router.push({name: 'album-asob', params: { albumId: albumId }}), 300);
       },
       getBandImageSrc() {
@@ -108,11 +112,30 @@
   }
 
   .band-image {
-    max-height: 30vh;
-    margin-top: -9em;
     margin-bottom: -7em;
     z-index: 2;
     position: relative;
+  }
+
+  .back-flex-group {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    flex: 1;
+  }
+
+  .back-bands-image {
+    max-height: 8vh;
+    position: relative;
+    z-index: 3;
+    margin-top: -2em;
+    margin-bottom: -2em;
+    margin-left: 1em;
+  }
+
+  .end-flex-group {
+    flex: 1;
   }
 
 </style>

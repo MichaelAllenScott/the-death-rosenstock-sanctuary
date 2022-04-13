@@ -3,7 +3,7 @@
     <div class="content-container">
       <div class="warning-container" id="warningNotice">
         <div>
-          <img class="" src="../assets/warning-title.png" alt="Album">
+          <img class="warning-header" src="../../assets/warning-title.png" alt="Album">
         </div>
         <div class="warning-text">
           Some loud-ass music is about to play...
@@ -11,17 +11,19 @@
         <div class="warning-text">
           We cool?
         </div>
+        <img class="div-line" src="../../assets/line-white.png" alt="Decorative Line">
         <div class="button-container">
-          <button @click="playWithSound()">Hell Yeah!</button>
-          <button @click="go()">No Thanks</button>
+          <img class="yes-button conf-button" @click="playWithSound()" src="../../assets/buttons/hell-yeah.png" alt="Hell Yeah!">
+          <img class="no-button conf-button" @click="goToHome()" src="../../assets/buttons/no-thanks.png" alt="No Thanks!">
         </div>
       </div>
       <div id="videoContent" style="display: none;">
         <div class="logo-flex-item" id="introLogo" style="visibility: hidden">
-          <img class="logo-image" src="../assets/logo.png" alt="The Death Rosenstock Sanctuary">
+          <img class="logo-image" src="../../assets/logo.png" alt="The Death Rosenstock Sanctuary">
+          <img id="enterButton" @click="goToHome()" src="../../assets/enter.png" alt="Enter" style="visibility: hidden">
         </div>
         <video autoplay loop id="myVideo">
-          <source src="../assets/videos/tdrs-intro.mp4" type="video/mp4">
+          <source src="../../assets/videos/tdrs-intro.mp4" type="video/mp4">
         </video>
       </div>
     </div>
@@ -40,22 +42,19 @@ export default {
         setTimeout(function () {
           document.getElementById("introLogo").style.visibility = 'visible';
         }, 1800);
-      },
-      playWithoutSound() {
-        document.getElementById("warningNotice").style.display = "none";
-        document.getElementById("videoContent").style.display = "block";
-        document.getElementById("myVideo").muted = true;
-        document.getElementById("myVideo").play();
         setTimeout(function () {
-          document.getElementById("introLogo").style.visibility = 'visible';
-        }, 1800);
+          document.getElementById("enterButton").style.visibility = 'visible';
+        }, 2800);
+      },
+      goToHome() {
+        this.$router.push({name: 'home'});
       }
     }
 };
 </script>
 
 <style scoped>
-  @import "../common/main.css";
+  @import "../../common/main.css";
 
   .content-container {
     display: flex;
@@ -72,6 +71,11 @@ export default {
     align-items: center;
   }
 
+  .warning-header {
+    max-height: 16vh;
+    margin-bottom: .5em;
+  }
+
   .warning-text {
     font-family: ManlyMenBB;
     color: white;
@@ -80,8 +84,25 @@ export default {
     margin-top: 0.5em;
   }
 
+  .div-line {
+    margin-top: 1.5em;
+    max-width: 30vw;
+  }
+
   .button-container {
-    margin-top: 1em;
+    margin-top: 2em;
+  }
+
+  .yes-button {
+    margin-left: 2em;
+  }
+
+  .no-button {
+    margin-left: 4em;
+  }
+
+  .conf-button {
+    max-height: 12vh;
   }
 
   #myVideo {
@@ -108,12 +129,27 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 
   .logo-image {
     min-height: 35vh;
     animation: shake 0.5s;
     animation-iteration-count: infinite;
+    background:-moz-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 188, 212, 0) 59%, rgba(255, 255, 255, 0) 100%);
+    background:-webkit-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 188, 212, 0) 59%, rgba(255, 255, 255, 0) 100%);
+    background:-o-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 188, 212, 0) 59%, rgba(255, 255, 255, 0) 100%);
+    background:-ms-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 188, 212, 0) 59%, rgba(255, 255, 255, 0) 100%);
+    background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 188, 212, 0) 59%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  #enterButton {
+    max-height: 6vh;
+    background:-moz-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 21%, rgba(0, 188, 212, 0) 69%, rgba(255, 255, 255, 0) 100%);
+    background:-webkit-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 21%, rgba(0, 188, 212, 0) 69%, rgba(255, 255, 255, 0) 100%);
+    background:-o-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 21%, rgba(0, 188, 212, 0) 69%, rgba(255, 255, 255, 0) 100%);
+    background:-ms-radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 21%, rgba(0, 188, 212, 0) 69%, rgba(255, 255, 255, 0) 100%);
+    background:radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 1) 21%, rgba(0, 188, 212, 0) 69%, rgba(255, 255, 255, 0) 100%);
   }
 
   @keyframes shake {

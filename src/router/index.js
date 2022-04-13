@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
+import Base from "@/components/Base.vue";
+import Intro from "@/components/routes/Intro.vue";
 import Home from "@/components/routes/Home.vue";
 import Band from "@/components/routes/Band.vue";
 import Album from "@/components/routes/Album.vue";
@@ -10,8 +12,18 @@ import { BandEnum } from "@/common/constants";
 const routes = [
   {
     path: "/",
+    name: "base",
+    component: Base
+  },
+  {
+    path: "/home",
     name: "home",
     component: Home
+  },
+  {
+    path: "/intro",
+    name: "intro",
+    component: Intro
   },
   {
     path: "/asob",

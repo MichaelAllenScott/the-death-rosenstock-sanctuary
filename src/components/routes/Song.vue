@@ -1,9 +1,6 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <div class="song-container animate__animated animate__fadeInRightBig animate__faster">
+  <Header />
+  <div class="song-container animate__animated animate__fadeIn animate__fastest">
     <div v-bind:class="['panel-top', bandAbbrv]">
         <img class="back-arrow" @click="navigateToAlbum()" src="../../assets/icons/back-arrow.png" alt="Back">
         <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
@@ -28,11 +25,15 @@
 </template>
 
 <script>
+  import Header from  "@/components/common/Header.vue";
   import allBandData from "@/data/bands.json";
   import bandDataFunctions from "@/common/commonFunctions";
 
   export default {
     name: "Song",
+    components: {
+      Header
+    },
     props: {
       bandEnum: Number,
       bandAbbrv: String
@@ -50,6 +51,8 @@
       }
     },
     mounted() {
+      window.scrollTo(0, 0);
+
       const logo = document.querySelector('.logo-image');
       logo.classList.add("small");
 
@@ -75,8 +78,7 @@
     methods: {
       navigateToAlbum() {
         const songContainer = document.querySelector('.song-container');
-        songContainer.classList.remove("animate__fadeInRightBig");
-        songContainer.classList.add("animate__fadeOutRightBig");
+        songContainer.classList.remove("animate__fadeIn");
         setTimeout(() => this.$router.push({name: 'album-asob', params: { albumId: this.$route.params.albumId }}), 300);
       },
       getAlbumUrl(albumId) {

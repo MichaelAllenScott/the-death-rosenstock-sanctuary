@@ -154,6 +154,30 @@
 }
 
 
+.band-image.asob {
+  margin-top: -9em;
+  max-height: 30vh;
+}
+
+.band-image.btmi {
+  margin-top: -9em;
+  max-height: 20vh;
+}
+
+.band-image.jr {
+  margin-top: -9em;
+  max-height: 20vh;
+  transform: rotate(-2deg);
+}
+
+.band-image.av {
+  margin-top: -12em;
+  max-height: 26vh;
+}
+
+
+
+
 /* Grow Shadow */
 .hvr-grow-shadow {
   vertical-align: middle;

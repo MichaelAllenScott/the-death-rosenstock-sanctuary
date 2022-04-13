@@ -1,8 +1,5 @@
 <template>
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <Header />
   <div class="bands-container">
     <div class="bands-header-container">
       <img class="bands-header-image" src="../../assets/bands-component/band-title.png" alt="Bands">
@@ -41,8 +38,13 @@
 </template>
 
 <script>
+import Header from  "@/components/common/Header.vue";
+
 export default {
   name: "Bands",
+  components: {
+    Header
+  },
   mounted() {
 
     const logo = document.querySelector('.logo-image');
@@ -105,7 +107,7 @@ export default {
       const bandsContainer = document.querySelector('.bands-container');
       bandsContainer.classList.add("animate__animated");
       bandsContainer.classList.add("animate__faster");
-      bandsContainer.classList.add("animate__fadeOutLeftBig");
+      bandsContainer.classList.add("animate__zoomOut");
       let routeName = 'band-' + abbrv;
       setTimeout(() => this.$router.push({name: routeName}), 300);
     }

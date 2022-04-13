@@ -1,9 +1,6 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-  <div class="album-container animate__animated animate__fadeInRightBig animate__faster">
+  <Header />
+  <div class="album-container animate__animated animate__fadeIn animate__fastest">
     <div v-bind:class="['panel-top', bandAbbrv]">
         <img class="back-arrow" @click="navigateToBand()" src="../../assets/icons/back-arrow.png" alt="Back">
         <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
@@ -42,6 +39,7 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
 </template>
 
 <script>
+  import Header from  "@/components/common/Header.vue";
   import allBandData from "@/data/bands.json";
   import bandDataFunctions from "@/common/commonFunctions";
   import SongsPanel from "@/components/common/panels/SongsPanel";
@@ -49,7 +47,8 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
   export default {
     name: "Album",
     components: {
-      SongsPanel
+      SongsPanel,
+      Header
     },
     props: {
       bandEnum: Number,
@@ -68,6 +67,8 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
       }
     },
     mounted() {
+      window.scrollTo(0, 0);
+
       const logo = document.querySelector('.logo-image');
       logo.classList.add("small");
 
@@ -92,14 +93,12 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
     methods: {
       navigateToBand() {
         const albumContainer = document.querySelector('.album-container');
-        albumContainer.classList.remove("animate__fadeInRightBig");
-        albumContainer.classList.add("animate__fadeOutRightBig");
+        albumContainer.classList.remove("animate__fadeIn");
         setTimeout(() => this.$router.push({name: 'band-asob'}), 300);
       },
       navigateToSong(songId) {
         const albumContainer = document.querySelector('.album-container');
-        albumContainer.classList.remove("animate__fadeInRightBig");
-        albumContainer.classList.add("animate__fadeOutLeftBig");
+        albumContainer.classList.remove("animate__fadeIn");
         setTimeout(() => this.$router.push({name: 'song-asob', params: { albumId: this.albumData.id, songId: songId }}), 300);
       },
       getAlbumUrl(albumId) {
