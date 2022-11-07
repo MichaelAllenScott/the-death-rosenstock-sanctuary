@@ -5,28 +5,28 @@
       <img class="bands-header-image" src="../../assets/bands-component/band-title.png" alt="Bands">
     </div>
     <div class="bands-first-row-container">
-      <img class="asob-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/asob.png" alt="Arrogant Sons of Bitches">
-      <img  class="asob-hover-image animate__animated animate__bounceIn animate__faster" 
+      <img class="asob-image " src="../../assets/bands-component/asob.png" alt="Arrogant Sons of Bitches">
+      <img  class="asob-hover-image " 
             style="display: none" 
             @click="navigateToBand('asob')" 
             src="../../assets/bands-component/asob-hover.png" 
             alt="Arrogant Sons of Bitches">
-      <img class="btmi-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/btmi.png" alt="Bomb The Music Industry">
-      <img  class="btmi-hover-image  animate__animated animate__bounceIn animate__faster" 
+      <img class="btmi-image " src="../../assets/bands-component/btmi.png" alt="Bomb The Music Industry">
+      <img  class="btmi-hover-image  " 
             style="display: none" 
             @click="navigateToBand('btmi')" 
             src="../../assets/bands-component/btmi-hover.png" 
             alt="Bomb The Music Industry!">
     </div>
     <div class="bands-second-row-container">
-      <img class="jr-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/jr.png" alt="Jeff Rosenstock">
-      <img  class="jr-hover-image animate__animated animate__bounceIn animate__faster" 
+      <img class="jr-image " src="../../assets/bands-component/jr.png" alt="Jeff Rosenstock">
+      <img  class="jr-hover-image " 
             style="display: none" 
             @click="navigateToBand('jr')" 
             src="../../assets/bands-component/jr-hover.png" 
             alt="Jeff Rosenstock">
-      <img class="av-image animate__animated animate__bounceIn animate__faster" src="../../assets/bands-component/av.png" alt="Antarctigo Vespucci">
-      <img  class="av-hover-image animate__animated animate__bounceIn animate__faster" 
+      <img class="av-image " src="../../assets/bands-component/av.png" alt="Antarctigo Vespucci">
+      <img  class="av-hover-image " 
             style="display: none" 
             @click="navigateToBand('av')" 
             src="../../assets/bands-component/av-hover.png" 

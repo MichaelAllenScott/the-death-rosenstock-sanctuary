@@ -79,11 +79,11 @@
       navigateToAlbum() {
         const songContainer = document.querySelector('.song-container');
         songContainer.classList.remove("animate__fadeIn");
-        setTimeout(() => this.$router.push({name: 'album-asob', params: { albumId: this.$route.params.albumId }}), 300);
+        setTimeout(() => this.$router.push({name: `album-${this.$props.bandAbbrv}`, params: { albumId: this.$route.params.albumId }}), 300);
       },
       getAlbumUrl(albumId) {
-        var images = require.context('../../assets/album-images/asob/', false, /\.jpg$/);
-        return images('./' + albumId + ".jpg");
+        var images = require.context('../../assets/album-images', true, /\.jpg$/);
+        return images(`./${this.$props.bandAbbrv}/` + albumId + ".jpg");
       }
     }
   };

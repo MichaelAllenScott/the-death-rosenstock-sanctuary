@@ -15,7 +15,7 @@
             <img class="back-bands-image" src="../../assets/bands-component/band-title.png" alt="Bands">
           </div>
       </div>
-      <img v-bind:class="['band-image', bandAbbrv]" :src="getBandImageSrc()" alt="Arrogant Sons of Bitches">
+      <img v-bind:class="['band-image', bandAbbrv]" :src="getBandImageSrc()" :alt="this.bandData.name">
       <div class="end-flex-group"></div>
     </div>
     <div v-bind:class="['panel-background', bandAbbrv]">
@@ -93,7 +93,7 @@
       navigateToAlbum(albumId) {
         const bandsContainer = document.querySelector('.band-container');
         bandsContainer.classList.remove("animate__fadeIn");
-        setTimeout(() => this.$router.push({name: 'album-asob', params: { albumId: albumId }}), 300);
+        setTimeout(() => this.$router.push({name: `album-${this.$props.bandAbbrv}`, params: { albumId: albumId }}), 300);
       },
       getBandImageSrc() {
         return require('../../assets/bands-component/' + this.$props.bandAbbrv + '-hover.png');
@@ -126,11 +126,12 @@
   }
 
   .back-bands-image {
-    max-height: 8vh;
+    max-height: 5vh;
     position: relative;
+    transform: rotate(0deg);
     z-index: 3;
-    margin-top: -2em;
-    margin-bottom: -2em;
+    margin-top: -3em;
+    margin-bottom: -1em;
     margin-left: 1em;
   }
 

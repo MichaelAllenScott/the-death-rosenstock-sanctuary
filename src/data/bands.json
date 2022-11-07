@@ -2,29 +2,11 @@
     {
         "id": 1,
         "name": "The Arrogant Sons of Bitches",
-        "albums": [ 
-          {
-            "id": 1,
-            "name": "Built To Fail",
-            "year": 1998,
-            "ep": false
-          },
-          {
-            "id": 2,
-            "name": "Pornocracy",
-            "year": 2000,
-            "ep": false
-          },
+        "albums": [
           {
             "id": 3,
             "name": "The Apology",
             "year": 2001,
-            "ep": true
-          },
-          {
-            "id": 4,
-            "name": "All The Little Ones Are Rotting",
-            "year": 2002,
             "ep": true
           },
           {
@@ -99,16 +81,349 @@
     {
         "id": 2,
         "name": "Bomb The Music Industry!",
-        "albums": [ ]
+        "albums": [
+          {
+            "id": 1,
+            "name": "Album Minus Band",
+            "year": 2006,
+            "ep": false,
+            "songs": [
+              {
+                "id": 1,
+                "name": "Blow Your Brains Out on Live TV!!!",
+                "youtubeUrl": "https://www.youtube.com/embed/XAmTr5cyII8"
+              },
+              {
+                "id": 2,
+                "name": "Does Your Face Hurt No 'Cause It's Killin' Me!!!",
+                "youtubeUrl": "https://www.youtube.com/embed/La_SGlqy21U"
+              },
+              {
+                "id": 3,
+                "name": "It Ceases to Be \"Whining\" If You're Still \"Shitting\" Blood",
+                "youtubeUrl": "https://www.youtube.com/embed/W6TYm7oJ13g"
+              },
+              {
+                "id": 4,
+                "name": "Big Plans of Sleeping In",
+                "youtubeUrl": "https://www.youtube.com/embed/W2tZ9j03Xlk"
+              },
+              {
+                "id": 5,
+                "name": "I'm A Panic Bomb, Baby!",
+                "youtubeUrl": "https://www.youtube.com/embed/WZcBylbh0N4"
+              },
+              {
+                "id": 6,
+                "name": "Sweet Home Cananada",
+                "youtubeUrl": "https://www.youtube.com/embed/mcPWPJcmHeo"
+              },
+              {
+                "id": 7,
+                "name": "Funcoland Vs. The Southern Electorate",
+                "youtubeUrl": "https://www.youtube.com/embed/xAB0ixdy7oc"
+              },
+              {
+                "id": 8,
+                "name": "Ready... Set... No!!!",
+                "youtubeUrl": "https://www.youtube.com/embed/phEmrL3TtWs"
+              },
+              {
+                "id": 9,
+                "name": "I'm Too Cooooool For Music",
+                "youtubeUrl": "https://www.youtube.com/embed/9M-S2ztR8OE"
+              },
+              {
+                "id": 10,
+                "name": "Pike St. - Park Slope",
+                "youtubeUrl": "https://www.youtube.com/embed/lAZlJHkFr5g"
+              },
+              {
+                "id": 11,
+                "name": "FRRRREEEEE BIIIIIIIRRRRD!!!!!!",
+                "youtubeUrl": "https://www.youtube.com/embed/XRnCu8QzEic"
+              },
+              {
+                "id": 12,
+                "name": "Future 86",
+                "youtubeUrl": "https://www.youtube.com/embed/zBk6ZP8hQDU"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "To Leave or Die in Long Island",
+            "year": 2005,
+            "ep": false,
+            "songs": [
+              {
+                "id": 1,
+                "name": "Happy Anterrabae Day!!!",
+                "youtubeUrl": "https://www.youtube.com/embed/03wPW3VGiKQ"
+              },
+              {
+                "id": 2,
+                "name": "Congratulations, John, On Joining Every Time I Die",
+                "youtubeUrl": "https://www.youtube.com/embed/cvSwCRIIikY"
+              },
+              {
+                "id": 3,
+                "name": "Showerbeers!",
+                "youtubeUrl": "https://www.youtube.com/embed/41yu09hI2QQ"
+              },
+              {
+                "id": 4,
+                "name": "Stand There Until You're Sober",
+                "youtubeUrl": "https://www.youtube.com/embed/-dootQfjKZk"
+              },
+              {
+                "id": 5,
+                "name": "Dude, Get With The Program",
+                "youtubeUrl": "https://www.youtube.com/embed/9dwVjCXky4A"
+              },
+              {
+                "id": 6,
+                "name": "Bomb The Music Industry! (And Action Action) Are Fucking Dead",
+                "youtubeUrl": "https://www.youtube.com/embed/0x5exNfeyVE"
+              },
+              {
+                "id": 7,
+                "name": "Brian Wilson Says SMiLE a k a Beard Of Defiance",
+                "youtubeUrl": "https://www.youtube.com/embed/3vWcKzOTKEI"
+              },
+              {
+                "id": 8,
+                "name": "Syke! Life Is Awesome!",
+                "youtubeUrl": "https://www.youtube.com/embed/u1-pdsOZoCI"
+              }
+            ]
+          }
+         ]
     },
     {
         "id": 3,
         "name": "Jeff Rosenstock",
-        "albums": [ ]
+        "albums": [
+          {
+            "id": 1,
+            "name": "We Cool?",
+            "year": 2015,
+            "ep": false,
+            "songs": [
+              {
+                "id": 1,
+                "name": "Get Old Forever",
+                "youtubeUrl": "https://www.youtube.com/embed/4Hc3uVUgzIU"
+              },
+              {
+                "id": 2,
+                "name": "You, In Weird Cities",
+                "youtubeUrl": "https://www.youtube.com/embed/TylMST0xVDw"
+              },
+              {
+                "id": 3,
+                "name": "Novelty Sweater",
+                "youtubeUrl": "https://www.youtube.com/embed/-YMDx--Foag"
+              },
+              {
+                "id": 4,
+                "name": "Nausea",
+                "youtubeUrl": "https://www.youtube.com/embed/Y0CLzbUV-eo"
+              },
+              {
+                "id": 5,
+                "name": "Beers Again Alone",
+                "youtubeUrl": "https://www.youtube.com/embed/6R3tDkViwiE"
+              },
+              {
+                "id": 6,
+                "name": "I'm Serious, I'm Sorry",
+                "youtubeUrl": "https://www.youtube.com/embed/JPzLB8BrZqY"
+              },
+              {
+                "id": 7,
+                "name": "Hey Allison!",
+                "youtubeUrl": "https://www.youtube.com/embed/P6QfNA6do6U"
+              },
+              {
+                "id": 8,
+                "name": "Polar Bear Or Africa",
+                "youtubeUrl": "https://www.youtube.com/embed/1ecYe0wiidc"
+              },
+              {
+                "id": 9,
+                "name": "Hall Of Fame",
+                "youtubeUrl": "https://www.youtube.com/embed/CcILGVVscEY"
+              },
+              {
+                "id": 10,
+                "name": "All Blissed Out",
+                "youtubeUrl": "https://www.youtube.com/embed/jOoVvnpEswQ"
+              },
+              {
+                "id": 11,
+                "name": "The Lows",
+                "youtubeUrl": "https://www.youtube.com/embed/6BF6QYFE1lU"
+              },
+              {
+                "id": 12,
+                "name": "Darkness Records",
+                "youtubeUrl": "https://www.youtube.com/embed/LyAH0Eo6Kys"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "name": "SKA DREAM",
+            "year": 2021,
+            "ep": false,
+            "songs": [
+              {
+                "id": 1,
+                "name": "NO TIME TO SKANK",
+                "youtubeUrl": "https://www.youtube.com/embed/Tw1xp7-T1M0"
+              },
+              {
+                "id": 2,
+                "name": "Airwalks (Alt)",
+                "youtubeUrl": "https://www.youtube.com/embed/nevepXR0MeI"
+              },
+              {
+                "id": 3,
+                "name": "SKrAm!",
+                "youtubeUrl": "https://www.youtube.com/embed/eim0fVh5AZE"
+              },
+              {
+                "id": 4,
+                "name": "S K A D R E A M",
+                "youtubeUrl": "https://www.youtube.com/embed/O8pf7jn_Jo8"
+              },
+              {
+                "id": 5,
+                "name": "Horn Line",
+                "youtubeUrl": "https://www.youtube.com/embed/hvnn0ZSKEvQ"
+              },
+              {
+                "id": 6,
+                "name": "p i c k i t u p",
+                "youtubeUrl": "https://www.youtube.com/embed/CXgBYiBK6nI"
+              },
+              {
+                "id": 7,
+                "name": "Leave It In The Ska",
+                "youtubeUrl": "https://www.youtube.com/embed/OFozTxgGeQQ"
+              },
+              {
+                "id": 8,
+                "name": "The Rudie Of Breathing",
+                "youtubeUrl": "https://www.youtube.com/embed/B3rS3z_FU68"
+              },
+              {
+                "id": 9,
+                "name": "Old SKrAp",
+                "youtubeUrl": "https://www.youtube.com/embed/nI771zFZJyw"
+              },
+              {
+                "id": 10,
+                "name": "***SKA",
+                "youtubeUrl": "https://www.youtube.com/embed/6SixWNVc8aQ"
+              },
+              {
+                "id": 11,
+                "name": "Monday At Back To The Beach",
+                "youtubeUrl": "https://www.youtube.com/embed/0a9NpWHWF6g"
+              },
+              {
+                "id": 12,
+                "name": "Checkerboard Ashtray",
+                "youtubeUrl": "https://www.youtube.com/embed/QVXaR2Fh9LY"
+              },
+              {
+                "id": 13,
+                "name": "Ohio Porkpie",
+                "youtubeUrl": "https://www.youtube.com/embed/UqdsmEn4WcI"
+              }
+            ]
+          }
+         ]
     },
     {
         "id": 4,
-        "name": "Antartigo Vespucci",
-        "albums": [ ]
+        "name": "Antarctigo Vespucci",
+        "albums": [ 
+          {
+            "id": 1,
+            "name": "Love in the Time of Email",
+            "year": 2018,
+            "ep": false,
+            "songs": [
+              {
+                "id": 1,
+                "name": "Voicemail",
+                "youtubeUrl": "https://www.youtube.com/embed/pbvFFOwnEnQ"
+              },
+              {
+                "id": 2,
+                "name": "Kimmy",
+                "youtubeUrl": "https://www.youtube.com/embed/i5dwk1g6aGQ"
+              },
+              {
+                "id": 3,
+                "name": "White Noise",
+                "youtubeUrl": "https://www.youtube.com/embed/NdIRL4vHD1w"
+              },
+              {
+                "id": 4,
+                "name": "Breathless On DVD",
+                "youtubeUrl": "https://www.youtube.com/embed/8c-dkLJ-PQg"
+              },
+              {
+                "id": 5,
+                "name": "The Price is Right Theme Song",
+                "youtubeUrl": "https://www.youtube.com/embed/tPq7aWeH2K4"
+              },
+              {
+                "id": 6,
+                "name": "So Vivid!",
+                "youtubeUrl": "https://www.youtube.com/embed/diL_-AKV1Ho"
+              },
+              {
+                "id": 7,
+                "name": "Freakin' U Out",
+                "youtubeUrl": "https://www.youtube.com/embed/-Okhy74Y_Pw"
+              },
+              {
+                "id": 8,
+                "name": "All These Nights",
+                "youtubeUrl": "https://www.youtube.com/embed/x2XvzwaMadY"
+              },
+              {
+                "id": 9,
+                "name": "Not Yours",
+                "youtubeUrl": "https://www.youtube.com/embed/zAwEPihU7FY"
+              },
+              {
+                "id": 10,
+                "name": "Do It Over",
+                "youtubeUrl": "https://www.youtube.com/embed/bnaNnWGwYH8"
+              },
+              {
+                "id": 11,
+                "name": "Another Good Thing",
+                "youtubeUrl": "https://www.youtube.com/embed/T_XQGM6ZZaY"
+              },
+              {
+                "id": 12,
+                "name": "Lifelike",
+                "youtubeUrl": "https://www.youtube.com/embed/sJu4l2A5zTw"
+              },
+              {
+                "id": 13,
+                "name": "Email",
+                "youtubeUrl": "https://www.youtube.com/embed/8NE4XqXRiDI"
+              }
+            ]
+          }
+        ]
     }
 ]

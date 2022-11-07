@@ -36,8 +36,8 @@
         this.panelClosed = !this.panelClosed;
       },
       getAlbumUrl(album) {
-        var images = require.context('../../../assets/album-images/asob/', false, /\.jpg$/)
-        return images('./' + album.id + ".jpg")
+        var images = require.context('../../../assets/album-images', true, /\.jpg$/);
+        return images(`./${this.$props.bandAbbrv}/` + album.id + ".jpg");
       },
       navigateToAlbum(albumId) {
         this.$emit('navigate-to-album', albumId);

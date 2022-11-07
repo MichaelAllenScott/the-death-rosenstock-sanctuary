@@ -94,16 +94,16 @@ Amet nisl suscipit adipiscing bibendum est ultricies. Aliquam sem fringilla ut m
       navigateToBand() {
         const albumContainer = document.querySelector('.album-container');
         albumContainer.classList.remove("animate__fadeIn");
-        setTimeout(() => this.$router.push({name: 'band-asob'}), 300);
+        setTimeout(() => this.$router.push({name: `band-${this.$props.bandAbbrv}`}), 300);
       },
       navigateToSong(songId) {
         const albumContainer = document.querySelector('.album-container');
         albumContainer.classList.remove("animate__fadeIn");
-        setTimeout(() => this.$router.push({name: 'song-asob', params: { albumId: this.albumData.id, songId: songId }}), 300);
+        setTimeout(() => this.$router.push({name: `song-${this.$props.bandAbbrv}`, params: { albumId: this.albumData.id, songId: songId }}), 300);
       },
       getAlbumUrl(albumId) {
-        var images = require.context('../../assets/album-images/asob/', false, /\.jpg$/);
-        return images('./' + albumId + ".jpg");
+        var images = require.context('../../assets/album-images', true, /\.jpg$/);
+        return images(`./${this.$props.bandAbbrv}/` + albumId + ".jpg");
       }
     }
   };
