@@ -3,16 +3,12 @@
   <div class="band-container animate__animated animate__fadeIn animate__fastest">
     <div v-bind:class="['panel-top', bandAbbrv]">
       <div class="back-flex-group">
-        <div>
-          <img class="back-arrow" @click="navigateToBands()" src="../../assets/icons/back-arrow.png" alt="Back">
-          <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
-                style="display: none" 
-                @click="navigateToBands()" 
-                src="../../assets/icons/back-arrow-hover.png" 
-                alt="Back">
+          <div class="back-arrow-container">
+            <img class="back-arrow" @click="navigateToBands()" src="@/assets/icons/back-arrow.png" alt="Back">
+            <img class="back-arrow-hover" @click="navigateToBands()" src="@/assets/icons/back-arrow-hover.png"  alt="Back">
           </div>
           <div>
-            <img class="back-bands-image" src="../../assets/bands-component/band-title.png" alt="Bands">
+            <img class="back-bands-image" src="@/assets/bands-component/band-title.png" alt="Bands">
           </div>
       </div>
       <img v-bind:class="['band-image', bandAbbrv]" :src="getBandImageSrc()" :alt="this.bandData.name">
@@ -29,11 +25,11 @@
 
 <script>
   import Header from  "@/components/common/Header.vue";
-  import allBandData from "@/data/bands.json";
-  import bandDataFunctions from "@/common/commonFunctions";
   import DiscographyPanel from "@/components/common/panels/DiscographyPanel";
   import MoreInfoPanel from "@/components/common/panels/MoreInfoPanel";
   import JeffsExplanationPanel from "@/components/common/panels/JeffsExplanationPanel";
+  import DataRetrieval from "@/data/DataRetrieval";
+  import TransitionEngine from "@/common/TransitionEngine";
 
   export default {
     name: "Band",
@@ -58,31 +54,16 @@
     data() {
       return {
         bandData: {
-          name: ""
+          name: "",
+          albums: []
         }
       }
     },
     created() {
-      this.bandData = bandDataFunctions.retrieveBandDataWithId(this.bandEnum, allBandData)
+      this.bandData = DataRetrieval.retrieveBandDataWithId(this.bandEnum);
     },
     mounted() {
-      window.scrollTo(0, 0);
-
-      const logo = document.querySelector('.logo-image');
-      logo.classList.add("small");
-
-      const backWhite = document.querySelector('.back-arrow');
-      const backHover = document.querySelector('.back-arrow-hover');
-
-      backWhite.addEventListener('mouseover', () => {
-        backHover.style.display = "block";
-        backWhite.style.display = "none";
-      });
-
-      backHover.addEventListener('mouseout', () => {
-        backWhite.style.display = "block";
-        backHover.style.display = "none";
-      });
+      TransitionEngine.onPanelMount();
     },
     methods: {
       navigateToBands() {
@@ -96,7 +77,7 @@
         setTimeout(() => this.$router.push({name: `album-${this.$props.bandAbbrv}`, params: { albumId: albumId }}), 300);
       },
       getBandImageSrc() {
-        return require('../../assets/bands-component/' + this.$props.bandAbbrv + '-hover.png');
+        return require('@/assets/bands-component/' + this.$props.bandAbbrv + '-hover.png');
       }
     }
   };
@@ -104,7 +85,7 @@
 
 
 <style scoped>
-  @import "../../common/main.css";
+  @import "../../main.css";
 
   .band-header-image-container {
     display: flex;
@@ -117,22 +98,15 @@
     position: relative;
   }
 
-  .back-flex-group {
-    display: flex;
-    align-items: center;
-    z-index: 1;
-    position: relative;
-    flex: 1;
-  }
-
   .back-bands-image {
-    max-height: 5vh;
+    max-height: 7vh;
     position: relative;
-    transform: rotate(0deg);
+    transform: rotate(-5deg);
     z-index: 3;
     margin-top: -3em;
     margin-bottom: -1em;
     margin-left: 1em;
+    filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.5));
   }
 
   .end-flex-group {

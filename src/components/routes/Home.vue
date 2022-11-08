@@ -2,35 +2,27 @@
   <Header />
   <div class="bands-container">
     <div class="bands-header-container">
-      <img class="bands-header-image" src="../../assets/bands-component/band-title.png" alt="Bands">
+      <img class="bands-header-image" src="@/assets/bands-component/band-title.png" alt="Bands">
     </div>
     <div class="bands-first-row-container">
-      <img class="asob-image " src="../../assets/bands-component/asob.png" alt="Arrogant Sons of Bitches">
-      <img  class="asob-hover-image " 
-            style="display: none" 
-            @click="navigateToBand('asob')" 
-            src="../../assets/bands-component/asob-hover.png" 
-            alt="Arrogant Sons of Bitches">
-      <img class="btmi-image " src="../../assets/bands-component/btmi.png" alt="Bomb The Music Industry">
-      <img  class="btmi-hover-image  " 
-            style="display: none" 
-            @click="navigateToBand('btmi')" 
-            src="../../assets/bands-component/btmi-hover.png" 
-            alt="Bomb The Music Industry!">
+      <div class="band-image-container">
+        <img class="asob-image" src="@/assets/bands-component/asob.png" alt="Arrogant Sons of Bitches">
+        <img class="asob-hover-image" @click="navigateToBand('asob')" src="@/assets/bands-component/asob-hover.png" alt="Arrogant Sons of Bitches">
+      </div>
+      <div class="band-image-container">
+        <img class="btmi-image" src="@/assets/bands-component/btmi.png" alt="Bomb The Music Industry">
+        <img class="btmi-hover-image" @click="navigateToBand('btmi')" src="@/assets/bands-component/btmi-hover.png" alt="Bomb The Music Industry!">
+      </div>
     </div>
     <div class="bands-second-row-container">
-      <img class="jr-image " src="../../assets/bands-component/jr.png" alt="Jeff Rosenstock">
-      <img  class="jr-hover-image " 
-            style="display: none" 
-            @click="navigateToBand('jr')" 
-            src="../../assets/bands-component/jr-hover.png" 
-            alt="Jeff Rosenstock">
-      <img class="av-image " src="../../assets/bands-component/av.png" alt="Antarctigo Vespucci">
-      <img  class="av-hover-image " 
-            style="display: none" 
-            @click="navigateToBand('av')" 
-            src="../../assets/bands-component/av-hover.png" 
-            alt="Antarctigo Vespucci">
+      <div class="band-image-container">
+        <img class="jr-image" src="@/assets/bands-component/jr.png" alt="Jeff Rosenstock">
+        <img class="jr-hover-image" @click="navigateToBand('jr')" src="@/assets/bands-component/jr-hover.png" alt="Jeff Rosenstock">
+      </div>
+      <div class="band-image-container">
+        <img class="av-image " src="@/assets/bands-component/av.png" alt="Antarctigo Vespucci">
+        <img class="av-hover-image" @click="navigateToBand('av')" src="@/assets/bands-component/av-hover.png" alt="Antarctigo Vespucci">
+      </div>
     </div>
       <div class="bands-third-row-container">
     </div>
@@ -38,81 +30,28 @@
 </template>
 
 <script>
-import Header from  "@/components/common/Header.vue";
+  import Header from  "@/components/common/Header.vue";
+  import TransitionEngine from "@/common/TransitionEngine";
 
-export default {
-  name: "Bands",
-  components: {
-    Header
-  },
-  mounted() {
-
-    const logo = document.querySelector('.logo-image');
-    logo.classList.remove("small");
-
-    const asobWhite = document.querySelector('.asob-image');
-    const asobHover = document.querySelector('.asob-hover-image');
-
-    asobWhite.addEventListener('mouseover', () => {
-        asobHover.style.display = "block";
-        asobWhite.style.display = "none";
-    });
-
-    asobHover.addEventListener('mouseout', () => {
-        asobWhite.style.display = "block";
-        asobHover.style.display = "none";
-    });
-
-    const btmiWhite = document.querySelector('.btmi-image');
-    const btmiHover = document.querySelector('.btmi-hover-image');
-
-    btmiWhite.addEventListener('mouseover', () => {
-        btmiHover.style.display = "block";
-        btmiWhite.style.display = "none";
-    });
-
-    btmiHover.addEventListener('mouseout', () => {
-        btmiWhite.style.display = "block";
-        btmiHover.style.display = "none";
-    });
-
-    const jrWhite = document.querySelector('.jr-image');
-    const jrHover = document.querySelector('.jr-hover-image');
-
-    jrWhite.addEventListener('mouseover', () => {
-        jrHover.style.display = "block";
-        jrWhite.style.display = "none";
-    });
-
-    jrHover.addEventListener('mouseout', () => {
-        jrWhite.style.display = "block";
-        jrHover.style.display = "none";
-    });
-
-    const avWhite = document.querySelector('.av-image');
-    const avHover = document.querySelector('.av-hover-image');
-
-    avWhite.addEventListener('mouseover', () => {
-        avHover.style.display = "block";
-        avWhite.style.display = "none";
-    });
-
-    avHover.addEventListener('mouseout', () => {
-        avWhite.style.display = "block";
-        avHover.style.display = "none";
-    });
-  },
-  methods: {
-    navigateToBand(abbrv) {
-      const bandsContainer = document.querySelector('.bands-container');
-      bandsContainer.classList.add("animate__animated");
-      bandsContainer.classList.add("animate__faster");
-      bandsContainer.classList.add("animate__zoomOut");
-      let routeName = 'band-' + abbrv;
-      setTimeout(() => this.$router.push({name: routeName}), 300);
+  export default {
+    name: "Bands",
+    components: {
+      Header
+    },
+    mounted() {
+      TransitionEngine.onHomeMount();
+    },
+    methods: {
+      navigateToBand(abbrv) {
+        const bandsContainer = document.querySelector('.bands-container');
+        bandsContainer.classList.add("animate__animated");
+        bandsContainer.classList.add("animate__faster");
+        bandsContainer.classList.add("animate__zoomOut");
+        let routeName = 'band-' + abbrv;
+        setTimeout(() => this.$router.push({name: routeName}), 300);
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped>
@@ -140,16 +79,29 @@ export default {
     max-height: 13vh;
   }
 
+  .band-image-container {
+    position: relative;
+  }
+
   .asob-image {
     max-height: 30vh;
   }
 
   .asob-hover-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .2s;
     max-height: 30vh;
   }
 
-  .btmi-image {
-    max-height: 13vh;
+  .asob-hover-image:hover {
+    opacity: 1;
+    max-height: 30vh;
   }
 
   .btmi-image {
@@ -157,6 +109,19 @@ export default {
   }
 
   .btmi-hover-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .2s;
+    max-height: 15vh;
+  }
+
+  .btmi-hover-image:hover {
+    opacity: 1;
     max-height: 15vh;
   }
 
@@ -165,6 +130,19 @@ export default {
   }
 
   .jr-hover-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .2s;
+    max-height: 12vh;
+  }
+
+  .jr-hover-image:hover {
+    opacity: 1;
     max-height: 12vh;
   }
 
@@ -173,6 +151,19 @@ export default {
   }
 
   .av-hover-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .2s;
+    max-height: 22vh;
+  }
+
+  .av-hover-image:hover {
+    opacity: 1;
     max-height: 22vh;
   }
 

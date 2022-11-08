@@ -1,5 +1,7 @@
-const bandDataFunctions = {
-  retrieveBandDataWithId(bandEnum, allBandData) {
+import allBandData from "@/data/bands.json";
+
+const DataRetrieval = {
+  retrieveBandDataWithId(bandEnum) {
     let bandData = {}
     let band = allBandData.find(x => x.id === bandEnum);
     
@@ -10,9 +12,9 @@ const bandDataFunctions = {
     return bandData;
   },
 
-  retrieveAlbumDataWithId(bandEnum, albumId, allBandData) {
+  retrieveAlbumDataWithId(bandEnum, albumId) {
     let albumData = {};
-    let bandData = bandDataFunctions.retrieveBandDataWithId(bandEnum, allBandData);
+    let bandData = this.retrieveBandDataWithId(bandEnum);
 
     let album = bandData.albums.find(x => x.id == albumId);
     
@@ -50,4 +52,4 @@ const bandDataFunctions = {
 
 };
 
-export default bandDataFunctions;
+export default DataRetrieval;

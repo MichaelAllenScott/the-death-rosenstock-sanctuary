@@ -1,14 +1,14 @@
 <template>
   <div class="songs-container">
     <div v-bind:class="['collapsible-panel', 'hvr-grow-shadow', bandAbbrv]" @click="headerClick">
-      <img class="collapsible-panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Songs Chevron">
-      <img class="collapsible-panel-header" src="../../../assets/panel-headers/songs.png" alt="Songs">
+      <img class="collapsible-panel-chevron" :class="{ closed: panelClosed }" src="@/assets/icons/chevron.png" alt="Songs Chevron">
+      <img class="collapsible-panel-header" src="@/assets/panel-headers/songs.png" alt="Songs">
     </div>
     <div v-bind:class="['collapsible-panel-background', bandAbbrv, { closed: panelClosed }]">
       <div class="songs-container">
         <div class="songs-item" v-for="(song, index) in songs" :key="song.id">
           <p class="song-title" @click="navigateToSong(song.id)">{{song.name}}</p>
-          <img v-if="index !== songs.length - 1" class="song-title-line" src="../../../assets/line.png" alt="Decorative Line">
+          <img v-if="index !== songs.length - 1" class="song-title-line" src="@/assets/line.png" alt="Decorative Line">
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
         this.panelClosed = !this.panelClosed;
       },
       getAlbumUrl(album) {
-        var images = require.context('../../../assets/album-images/asob/', false, /\.jpg$/)
+        var images = require.context('@/assets/album-images/asob/', false, /\.jpg$/)
         return images('./' + album.id + ".jpg")
       },
       navigateToSong(songId) {

@@ -32,7 +32,7 @@
 }
 
 .panel-background {
-  background-image: url("../assets/old_wall.png");
+  background-image: url("./assets/old_wall.png");
   background-repeat: repeat;
   padding: 2.5em;
   margin: 0 15em 0 15em;
@@ -108,7 +108,7 @@
 }
 
 .collapsible-panel-background {
-  background-image: url("../assets/old_wall.png");
+  background-image: url("./assets/old_wall.png");
   background-repeat: repeat;
   padding: 2em;
   margin: -1em 15em .5em 15em;
@@ -145,14 +145,42 @@
   padding: 0;
 }
 
+.back-flex-group {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  flex: 1;
+}
+
+.end-flex-group {
+  flex: 1;
+}
+
+.back-arrow-container {
+  position: relative;
+}
+
 .back-arrow {
   max-height: 5vh;
 }
 
 .back-arrow-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .2s;
   max-height: 5vh;
 }
 
+.back-arrow-hover:hover {
+  opacity: 1;
+  max-height: 5vh;
+}
 
 .band-image.asob {
   margin-top: -9em;
@@ -232,5 +260,15 @@
 
 @font-face {
   font-family: ManlyMenBB;
-  src: url("../assets/fonts/ManlyMenBB_bold.otf") format("opentype");
+  src: url("./assets/fonts/ManlyMenBB_bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Cabin;
+  src: url("./assets/fonts/Cabin-Regular.ttf") format("truetype");
+}
+
+.basic-panel-text {
+  font-family: Cabin;
+  font-size: 1.2em;
 }

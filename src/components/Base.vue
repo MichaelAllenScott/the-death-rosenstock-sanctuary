@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Router from '../router'; 
+import Router from '@/router'; 
 
 export default {
   name: "Base",
@@ -22,7 +22,7 @@ export default {
       this.$cookies.set("tdrs-intro", true);
       this.showIntro = true;
       Router.push('intro');
-    } else {
+    } else if (window.location.pathname === '/' || window.location.pathname === '/home') {
       Router.push('/home');
     }
   }

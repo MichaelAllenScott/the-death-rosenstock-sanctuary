@@ -1,8 +1,8 @@
 <template>
   <div class="discography-container">
     <div v-bind:class="['collapsible-panel', 'hvr-grow-shadow', bandAbbrv]" @click="headerClick">
-      <img class="collapsible-panel-chevron" :class="{ closed: panelClosed }" src="../../../assets/icons/chevron.png" alt="Discography Chevron">
-      <img class="collapsible-panel-header" src="../../../assets/panel-headers/disc.png" alt="Discography">
+      <img class="collapsible-panel-chevron" :class="{ closed: panelClosed }" src="@/assets/icons/chevron.png" alt="Discography Chevron">
+      <img class="collapsible-panel-header" src="@/assets/panel-headers/disc.png" alt="Discography">
     </div>
     <div v-bind:class="['collapsible-panel-background', bandAbbrv, { closed: panelClosed }]">
       <div class="album-container">
@@ -36,7 +36,7 @@
         this.panelClosed = !this.panelClosed;
       },
       getAlbumUrl(album) {
-        var images = require.context('../../../assets/album-images', true, /\.jpg$/);
+        var images = require.context('@/assets/album-images', true, /\.jpg$/);
         return images(`./${this.$props.bandAbbrv}/` + album.id + ".jpg");
       },
       navigateToAlbum(albumId) {

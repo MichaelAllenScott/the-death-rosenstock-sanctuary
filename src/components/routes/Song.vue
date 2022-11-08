@@ -2,37 +2,43 @@
   <Header />
   <div class="song-container animate__animated animate__fadeIn animate__fastest">
     <div v-bind:class="['panel-top', bandAbbrv]">
-        <img class="back-arrow" @click="navigateToAlbum()" src="../../assets/icons/back-arrow.png" alt="Back">
-        <img  class="back-arrow-hover animate__animated animate__bounceIn animate__faster" 
-              style="display: none" 
-              @click="navigateToAlbum()" 
-              src="../../assets/icons/back-arrow-hover.png" 
-              alt="Back">
-        <img class="panel-header" src="../../assets/panel-headers/song.png" alt="Album">
-      <div></div>
+      <div class="back-flex-group">
+        <div class="back-arrow-container">
+          <img class="back-arrow" @click="navigateToAlbum()" src="@/assets/icons/back-arrow.png" alt="Back">
+          <img class="back-arrow-hover" @click="navigateToAlbum()" src="@/assets/icons/back-arrow-hover.png" alt="Back">
+        </div>
+        <div>
+          <img v-bind:class="['back-album-image', bandAbbrv]" :src="getAlbumUrl()">
+        </div>
+      </div>
+      <img class="panel-header" src="@/assets/panel-headers/song.png" alt="Album">
+      <div class="end-flex-group"></div>
     </div>
     <div v-bind:class="['panel-background', bandAbbrv]">
       <div class="song-title-container">
         <p class="song-title">{{songData.name}}</p>
-        <img class="song-title-line" src="../../assets/line.png" alt="Decorative Line">
+        <img class="song-title-line" src="@/assets/line.png" alt="Decorative Line">
         <iframe class="song-video" :src="songData.youtubeUrl"></iframe>
       </div>
-      
     </div>
-    
-    
   </div>
+  <JeffsExplanationPanel :bandAbbrv="bandAbbrv"/>
+  <MoreInfoPanel :bandAbbrv="bandAbbrv"/>
 </template>
 
 <script>
   import Header from  "@/components/common/Header.vue";
-  import allBandData from "@/data/bands.json";
-  import bandDataFunctions from "@/common/commonFunctions";
+  import MoreInfoPanel from "@/components/common/panels/MoreInfoPanel";
+  import JeffsExplanationPanel from "@/components/common/panels/JeffsExplanationPanel";
+  import DataRetrieval from "@/data/DataRetrieval";
+  import TransitionEngine from "@/common/TransitionEngine";
 
   export default {
     name: "Song",
     components: {
-      Header
+      Header,
+      MoreInfoPanel,
+      JeffsExplanationPanel
     },
     props: {
       bandEnum: Number,
@@ -40,10 +46,6 @@
     },
     data() {
       return {
-        bandData: {
-          name: "",
-          id: 0
-        },
         songData: {
           name: "",
           id: 0
@@ -51,29 +53,13 @@
       }
     },
     mounted() {
-      window.scrollTo(0, 0);
-
-      const logo = document.querySelector('.logo-image');
-      logo.classList.add("small");
-
-      const backWhite = document.querySelector('.back-arrow');
-      const backHover = document.querySelector('.back-arrow-hover');
-
-      backWhite.addEventListener('mouseover', () => {
-        backHover.style.display = "block";
-        backWhite.style.display = "none";
-      });
-
-      backHover.addEventListener('mouseout', () => {
-        backWhite.style.display = "block";
-        backHover.style.display = "none";
-      });
+      TransitionEngine.onPanelMount();
     },
     created() {
       let songId = this.$route.params.songId;
       let albumId = this.$route.params.albumId;
-      this.bandData = bandDataFunctions.retrieveBandDataWithId(this.bandEnum, allBandData);
-      this.songData = bandDataFunctions.retrieveSongDataWithBandAndId(songId, albumId, this.bandData);
+      let bandData = DataRetrieval.retrieveBandDataWithId(this.bandEnum);
+      this.songData = DataRetrieval.retrieveSongDataWithBandAndId(songId, albumId, bandData);
     },
     methods: {
       navigateToAlbum() {
@@ -81,16 +67,16 @@
         songContainer.classList.remove("animate__fadeIn");
         setTimeout(() => this.$router.push({name: `album-${this.$props.bandAbbrv}`, params: { albumId: this.$route.params.albumId }}), 300);
       },
-      getAlbumUrl(albumId) {
-        var images = require.context('../../assets/album-images', true, /\.jpg$/);
-        return images(`./${this.$props.bandAbbrv}/` + albumId + ".jpg");
+      getAlbumUrl() {
+        var images = require.context('@/assets/album-images', true, /\.jpg$/);
+        return images(`./${this.$props.bandAbbrv}/${this.$route.params.albumId}.jpg`);
       }
     }
   };
 </script>
 
 <style scoped>
-  @import "../../common/main.css";
+  @import "../../main.css";
 
   .song-title {
     font-family: ManlyMenBB;
@@ -116,5 +102,21 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+
+  .back-album-image {
+    max-height: 15vh;
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    transform: rotate(-5deg);
+    z-index: 3;
+    margin-top: -4em;
+    margin-bottom: -4em;
+    margin-left: 1em;
+    filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.5));
   }
 </style>
