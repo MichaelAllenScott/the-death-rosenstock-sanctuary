@@ -2,6 +2,7 @@
     {
         "id": 1,
         "name": "The Arrogant Sons of Bitches",
+        "bandMembers": ["Jeff Rosenstock", "John DeDominici", "Chris Baltrus", "Mike Costa", "JT Turret"],
         "albums": [
           {
             "id": 3,
@@ -26,6 +27,7 @@
     {
         "id": 2,
         "name": "Bomb The Music Industry!",
+        "bandMembers": ["Jeff Rosenstock", "John DeDominici", "Chris Baltrus", "Mike Costa", "JT Turret"],
         "albums": [
           {
             "id": 1,
@@ -148,6 +150,7 @@
     {
         "id": 3,
         "name": "Jeff Rosenstock",
+        "bandMembers": ["Jeff Rosenstock", "John DeDominici", "Mike Huguenor", "Kevin Higuchi"],
         "albums": [
           {
             "id": 1,
@@ -295,6 +298,7 @@
     {
         "id": 4,
         "name": "Antarctigo Vespucci",
+        "bandMembers": ["Jeff Rosenstock", "Chris Farren"],
         "albums": [ 
           {
             "id": 1,
