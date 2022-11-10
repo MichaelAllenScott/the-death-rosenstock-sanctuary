@@ -1,62 +1,32 @@
 <template>
   <div>
     <Header />
-    <div class="album-container animate__animated animate__fadeIn animate__fastest">
+    <div class="album-container animate__animated animate__fadeIn animate__faster">
       <div v-bind:class="['panel-top', bandAbbrv]">
         <div class="back-flex-group">
           <div class="back-arrow-container">
-            <img
-              class="back-arrow"
-              @click="navigateToBand()"
-              src="@/assets/icons/back-arrow.png"
-              alt="Back"
-            />
-            <img
-              class="back-arrow-hover"
-              @click="navigateToBand()"
-              src="@/assets/icons/back-arrow-hover.png"
-              alt="Back"
-            />
+            <img class="back-arrow" @click="navigateToBand()" src="@/assets/icons/back-arrow.png" alt="Back" />
+            <img class="back-arrow-hover" @click="navigateToBand()" src="@/assets/icons/back-arrow-hover.png" alt="Back"/>
           </div>
           <div>
-            <img
-              v-bind:class="['back-band-image', bandAbbrv]"
-              :src="getBandUrl()"
-            />
+            <img v-bind:class="['back-band-image', bandAbbrv]" :src="getBandUrl()" />
           </div>
         </div>
-        <img
-          class="panel-header"
-          src="@/assets/panel-headers/album.png"
-          alt="Album"
-        />
+        <img class="panel-header" src="@/assets/panel-headers/album.png" alt="Album" />
         <div class="end-flex-group"></div>
       </div>
       <div v-bind:class="['panel-background', bandAbbrv]">
-        <img
-          class="album-image"
-          :src="getAlbumUrl()"
-          :alt="album.name"
-        />
+        <img class="album-image" :src="getAlbumUrl()" :alt="album.name" />
         <div class="album-title-container">
           <p class="album-title">{{ album.name }}</p>
-          <img
-            class="album-title-line"
-            src="@/assets/line.png"
-            alt="Decorative Line"
-          />
+          <img class="album-title-line" src="@/assets/line.png" alt="Decorative Line"/>
           <p class="description-text basic-panel-text">
             {{album.description}}
           </p>
         </div>
         <div></div>
       </div>
-      <SongsPanel
-        @navigate-to-song="navigateToSong"
-        :songs="album.songs"
-        :albumOrderIndex="album.orderIndex"
-        :bandAbbrv="bandAbbrv"
-      />
+      <SongsPanel @navigate-to-song="navigateToSong" :songs="album.songs" :albumOrderIndex="album.orderIndex" :bandAbbrv="bandAbbrv" />
       <JeffsExplanationPanel v-if="album.explanation" :bandAbbrv="bandAbbrv" :explanationText="album.explanation" />
       <MoreInfoPanel v-if="album.moreInfo" :bandAbbrv="bandAbbrv" :infoText="album.moreInfo" />
     </div>
@@ -95,39 +65,28 @@ export default {
     TransitionEngine.onPanelMount();
     this.getAlbumData();
   },
-  created() {
-  },
   methods: {
     navigateToBand() {
-      const albumContainer = document.querySelector(".album-container");
-      albumContainer.classList.remove("animate__fadeIn");
-      setTimeout(
-        () => this.$router.push({ name: `band-${this.$props.bandAbbrv}` }),
-        300
-      );
+      TransitionEngine.triggerAnimationOnContainer("album-container", "fadeOut", "faster");
+      setTimeout(() => this.$router.push({ name: `band-${this.$props.bandAbbrv}` }), 300);
     },
     navigateToSong(songOrderIndex) {
-      const albumContainer = document.querySelector(".album-container");
-      albumContainer.classList.remove("animate__fadeIn");
-      setTimeout(
-        () =>
-          this.$router.push({
-            name: `song-${this.$props.bandAbbrv}`,
-            params: { albumOrderIndex: this.albumOrderIndex, songOrderIndex: songOrderIndex },
-          }),
-        300
-      );
+      TransitionEngine.triggerAnimationOnContainer("album-container", "fadeOut", "faster");
+      setTimeout(() => this.$router.push({
+        name: `song-${this.$props.bandAbbrv}`,
+        params: { albumOrderIndex: this.albumOrderIndex, songOrderIndex: songOrderIndex },
+      }), 300);
     },
     getAlbumUrl() {
-      var images = require.context("@/assets/album-images", true, /\.jpg$/);
+      const images = require.context("@/assets/album-images", true, /\.jpg$/);
       return images(`./${this.$props.bandAbbrv}/` + this.albumOrderIndex + ".jpg");
     },
     getBandUrl() {
-      var images = require.context("@/assets/bands-component", false, /\.png$/);
+      const images = require.context("@/assets/bands-component", false, /\.png$/);
       return images(`./${this.$props.bandAbbrv}-hover.png`);
     },
     async getAlbumData() {
-      const response = await fetch(`http://localhost:8080/api/bands/${this.$props.bandAbbrv}/albums/${this.albumOrderIndex}`);
+      const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}/albums/${this.albumOrderIndex}`);
       const albumData = await response.json();
       this.album = albumData;
     }

@@ -1,36 +1,18 @@
 <template>
   <div>
     <Header />
-    <div class="band-container animate__animated animate__fadeIn animate__fastest">
+    <div v-if="band.name && albums.length > 0" class="band-container animate__animated animate__fadeIn animate__faster">
       <div v-bind:class="['panel-top', bandAbbrv]">
         <div class="back-flex-group">
           <div class="back-arrow-container">
-            <img
-              class="back-arrow"
-              @click="navigateToBands()"
-              src="@/assets/icons/back-arrow.png"
-              alt="Back"
-            />
-            <img
-              class="back-arrow-hover"
-              @click="navigateToBands()"
-              src="@/assets/icons/back-arrow-hover.png"
-              alt="Back"
-            />
+            <img class="back-arrow" @click="navigateToBands()" src="@/assets/icons/back-arrow.png" alt="Back" />
+            <img class="back-arrow-hover" @click="navigateToBands()" src="@/assets/icons/back-arrow-hover.png" alt="Back" />
           </div>
           <div>
-            <img
-              class="back-bands-image"
-              src="@/assets/bands-component/band-title.png"
-              alt="Bands"
-            />
+            <img class="back-bands-image" src="@/assets/bands-component/band-title.png" alt="Bands" />
           </div>
         </div>
-        <img
-          v-bind:class="['band-image', bandAbbrv]"
-          :src="getBandImageSrc()"
-          :alt="this.band.name"
-        />
+        <img v-bind:class="['band-image', bandAbbrv]" :src="getBandImageSrc()" :alt="this.band.name"/>
         <div class="end-flex-group"></div>
       </div>
       <div v-bind:class="['panel-background', bandAbbrv]">
@@ -53,11 +35,7 @@
         </div>
         <div></div>
       </div>
-      <DiscographyPanel
-        @navigate-to-album="navigateToAlbum"
-        :albums="this.albums"
-        :bandAbbrv="bandAbbrv"
-      />
+      <DiscographyPanel @navigate-to-album="navigateToAlbum" :albums="this.albums" :bandAbbrv="bandAbbrv"/>
       <MoreInfoPanel v-if="band.moreInfo" :bandAbbrv="bandAbbrv" :infoText="band.moreInfo" />
     </div>
   </div>
@@ -90,7 +68,6 @@ export default {
       albums: [],
     };
   },
-  created() {},
   mounted() {
     TransitionEngine.onPanelMount();
     this.getBandData();
@@ -98,21 +75,15 @@ export default {
   },
   methods: {
     navigateToBands() {
-      const bandsContainer = document.querySelector(".band-container");
-      bandsContainer.classList.remove("animate__fadeIn");
+      TransitionEngine.triggerAnimationOnContainer("band-container", "fadeOut", "faster");
       setTimeout(() => this.$router.push({ name: "home" }), 300);
     },
     navigateToAlbum(orderIndex, album) {
-      const bandsContainer = document.querySelector(".band-container");
-      bandsContainer.classList.remove("animate__fadeIn");
-      setTimeout(
-        () =>
-          this.$router.push({
-            name: `album-${this.$props.bandAbbrv}`,
-            params: { albumOrderIndex: orderIndex, album: album },
-          }),
-        300
-      );
+      TransitionEngine.triggerAnimationOnContainer("band-container", "fadeOut", "faster");
+      setTimeout(() => this.$router.push({
+        name: `album-${this.$props.bandAbbrv}`,
+        params: { albumOrderIndex: orderIndex, album: album },
+      }), 300);
     },
     getBandImageSrc() {
       return require(`@/assets/bands-component/${this.$props.bandAbbrv}-hover.png`);
@@ -121,16 +92,12 @@ export default {
       return require("@/assets/band-images/" + this.$props.bandAbbrv + ".png");
     },
     async getBandData() {
-      const response = await fetch(
-        `http://localhost:8080/api/bands/${this.$props.bandAbbrv}`
-      );
+      const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}`);
       const bandData = await response.json();
       this.band = bandData;
     },
     async getAlbumData() {
-      const response = await fetch(
-        `http://localhost:8080/api/bands/${this.$props.bandAbbrv}/albums`
-      );
+      const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}/albums`);
       const albumsData = await response.json();
       this.albums = albumsData;
     },
@@ -151,6 +118,27 @@ export default {
   margin-bottom: -7em;
   z-index: 2;
   position: relative;
+}
+
+.band-image.asob {
+  margin-top: -9em;
+  max-height: 30vh;
+}
+
+.band-image.btmi {
+  margin-top: -9em;
+  max-height: 20vh;
+}
+
+.band-image.jr {
+  margin-top: -9em;
+  max-height: 20vh;
+  transform: rotate(-2deg);
+}
+
+.band-image.av {
+  margin-top: -12em;
+  max-height: 26vh;
 }
 
 .back-bands-image {

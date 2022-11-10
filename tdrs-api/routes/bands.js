@@ -3,6 +3,7 @@ const router = express.Router();
 const { Band } = require('../models/band');
 const { Album } = require('../models/album');
 
+//Get all bands
 router.get('/', async (req, res) => {
   try {
     const bands = await Band.find({});
@@ -12,6 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//Get band by abbreviation
 router.get('/:bandAbbrv', async (req, res) => {
   try {
     const band = await Band.findOne({bandAbbrv: req.params.bandAbbrv});
@@ -24,6 +26,7 @@ router.get('/:bandAbbrv', async (req, res) => {
   }
 });
 
+//Get all band albums by abbreviation
 router.get('/:bandAbbrv/albums', async (req, res) => {
   try {
     const albums = await Album.find({bandAbbrv: req.params.bandAbbrv});
@@ -33,6 +36,7 @@ router.get('/:bandAbbrv/albums', async (req, res) => {
   }
 });
 
+//Get band album by abbreviation and album orderIndex
 router.get('/:bandAbbrv/albums/:orderIndex', async (req, res) => {
   try {
     const album = await Album.findOne({bandAbbrv: req.params.bandAbbrv, orderIndex: req.params.orderIndex});
@@ -45,6 +49,7 @@ router.get('/:bandAbbrv/albums/:orderIndex', async (req, res) => {
   }
 });
 
+//Get album songs by band abbreviation and album orderIndex
 router.get('/:bandAbbrv/albums/:orderIndex/songs', async (req, res) => {
   try {
     const album = await Album.findOne({bandAbbrv: req.params.bandAbbrv, orderIndex: req.params.orderIndex});
@@ -57,6 +62,7 @@ router.get('/:bandAbbrv/albums/:orderIndex/songs', async (req, res) => {
   }
 });
 
+//Get album song by band abbreviation, album orderIndex, and song orderIndex
 router.get('/:bandAbbrv/albums/:albumOrderIndex/songs/:songOrderIndex', async (req, res) => {
   try {
     const album = await Album.findOne({bandAbbrv: req.params.bandAbbrv, orderIndex: req.params.albumOrderIndex});

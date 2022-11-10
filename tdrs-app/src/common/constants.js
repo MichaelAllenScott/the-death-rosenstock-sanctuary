@@ -1,6 +1,6 @@
-export const BandEnum = Object.freeze({
-    ASOB: 1,
-    BTMI: 2,
-    JR: 3,
-    AV: 4
+export const BandAbbrvs = Object.freeze({
+    ASOB: 'asob',
+    BTMI: 'btmi',
+    JR: 'jr',
+    AV: 'av'
 });

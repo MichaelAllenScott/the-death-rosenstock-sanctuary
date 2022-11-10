@@ -36,7 +36,7 @@
         this.panelClosed = !this.panelClosed;
       },
       getAlbumUrl(album) {
-        var images = require.context('@/assets/album-images', true, /\.jpg$/);
+        const images = require.context('@/assets/album-images', true, /\.jpg$/);
         return images(`./${this.$props.bandAbbrv}/` + album.orderIndex + ".jpg");
       },
       navigateToAlbum(albumId) {

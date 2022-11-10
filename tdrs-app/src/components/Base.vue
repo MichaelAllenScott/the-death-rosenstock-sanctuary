@@ -18,7 +18,7 @@ export default {
     }
   },
   created() {
-    let introCookie = this.$cookies.get("tdrs-intro");
+    const introCookie = this.$cookies.get("tdrs-intro");
 
     if (!introCookie) {
       this.$cookies.set("tdrs-intro", true);

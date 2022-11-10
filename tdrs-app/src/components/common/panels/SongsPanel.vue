@@ -17,7 +17,6 @@
 
 
 <script>
-
   export default {
     name: "SongsPanel",
     props: {
@@ -37,8 +36,8 @@
         this.panelClosed = !this.panelClosed;
       },
       getAlbumUrl(album) {
-        var images = require.context('@/assets/album-images/asob/', false, /\.jpg$/)
-        return images('./' + album.orderIndex + ".jpg")
+        const images = require.context('@/assets/album-images/asob/', false, /\.jpg$/);
+        return images(`./${album.orderIndex}.jpg`);
       },
       navigateToSong(songOrderIndex) {
         this.$emit('navigate-to-song', songOrderIndex);

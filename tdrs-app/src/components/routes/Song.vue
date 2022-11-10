@@ -1,52 +1,30 @@
 <template>
   <div>
     <Header />
-    <div class="song-container animate__animated animate__fadeIn animate__fastest">
+    <div class="song-container animate__animated animate__fadeIn animate__faster">
       <div v-bind:class="['panel-top', bandAbbrv]">
         <div class="back-flex-group">
           <div class="back-arrow-container">
-            <img
-              class="back-arrow"
-              @click="navigateToAlbum()"
-              src="@/assets/icons/back-arrow.png"
-              alt="Back"
-            />
-            <img
-              class="back-arrow-hover"
-              @click="navigateToAlbum()"
-              src="@/assets/icons/back-arrow-hover.png"
-              alt="Back"
-            />
+            <img class="back-arrow" @click="navigateToAlbum()" src="@/assets/icons/back-arrow.png" alt="Back" />
+            <img class="back-arrow-hover" @click="navigateToAlbum()" src="@/assets/icons/back-arrow-hover.png" alt="Back" />
           </div>
           <div>
-            <img
-              v-bind:class="['back-album-image', bandAbbrv]"
-              :src="getAlbumUrl()"
-            />
+            <img v-bind:class="['back-album-image', bandAbbrv]" :src="getAlbumUrl()" />
           </div>
         </div>
-        <img
-          class="panel-header"
-          src="@/assets/panel-headers/song.png"
-          alt="Album"
-        />
+        <img class="panel-header" src="@/assets/panel-headers/song.png" alt="Album" />
         <div class="end-flex-group"></div>
       </div>
       <div v-bind:class="['panel-background', bandAbbrv]">
         <div class="song-title-container">
           <p class="song-title">{{ song.name }}</p>
-          <img
-            class="song-title-line"
-            src="@/assets/line.png"
-            alt="Decorative Line"
-          />
+          <img class="song-title-line" src="@/assets/line.png" alt="Decorative Line"/>
           <iframe class="song-video" :src="song.youtubeUrl"></iframe>
           <div v-if="song.lyrics" class="lyrics-container">
             <div class="lyrics-header">Lyrics:</div>
             <div class="lyrics-text">{{song.lyrics}}</div>
           </div>
         </div>
-        
       </div>
     </div>
     <JeffsExplanationPanel v-if="song.explanation" :bandAbbrv="bandAbbrv" :explanationText="song.explanation" />
@@ -87,25 +65,18 @@ export default {
   },
   methods: {
     navigateToAlbum() {
-      const songContainer = document.querySelector(".song-container");
-      songContainer.classList.remove("animate__fadeIn");
-      setTimeout(
-        () =>
-          this.$router.push({
-            name: `album-${this.$props.bandAbbrv}`,
-            params: { albumId: this.albumOrderIndex },
-          }),
-        300
-      );
+      TransitionEngine.triggerAnimationOnContainer("song-container", "fadeOut", "faster");
+      setTimeout(() => this.$router.push({ 
+        name: `album-${this.$props.bandAbbrv}`, 
+        params: { albumId: this.albumOrderIndex}, 
+      }),300);
     },
     getAlbumUrl() {
-      var images = require.context("@/assets/album-images", true, /\.jpg$/);
-      return images(
-        `./${this.$props.bandAbbrv}/${this.albumOrderIndex}.jpg`
-      );
+      const images = require.context("@/assets/album-images", true, /\.jpg$/);
+      return images(`./${this.$props.bandAbbrv}/${this.albumOrderIndex}.jpg`);
     },
     async getSongData() {
-      const response = await fetch(`http://localhost:8080/api/bands/${this.$props.bandAbbrv}/albums/${this.albumOrderIndex}/songs/${this.songOrderIndex}`);
+      const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}/albums/${this.albumOrderIndex}/songs/${this.songOrderIndex}`);
       const songData = await response.json();
       this.song = songData;
     }

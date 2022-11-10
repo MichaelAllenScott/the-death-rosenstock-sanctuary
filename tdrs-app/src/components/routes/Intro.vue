@@ -1,50 +1,22 @@
 <template>
   <div id="introContent">
     <div class="content-container">
-      <div class="warning-container" id="warningNotice">
+      <div class="warning-container" id="warningNotice"> 
         <div>
-          <img
-            class="warning-header"
-            src="@/assets/warning-title.png"
-            alt="Album"
-          />
+          <img class="warning-header" src="@/assets/warning-title.png" alt="Album" />
         </div>
         <div class="warning-text">Some loud music is about to play...</div>
         <div class="warning-text">We cool?</div>
-        <img
-          class="div-line"
-          src="@/assets/line-white.png"
-          alt="Decorative Line"
-        />
+        <img class="div-line" src="@/assets/line-white.png" alt="Decorative Line" />
         <div class="button-container">
-          <img
-            class="yes-button conf-button"
-            @click="playWithSound()"
-            src="@/assets/buttons/heck-yeah.png"
-            alt="Heck Yeah!"
-          />
-          <img
-            class="no-button conf-button"
-            @click="goToHome()"
-            src="@/assets/buttons/no-thanks.png"
-            alt="No Thanks!"
-          />
+          <img class="yes-button conf-button" @click="playWithSound()" src="@/assets/buttons/heck-yeah.png" alt="Heck Yeah!"/>
+          <img class="no-button conf-button" @click="goToHome()" src="@/assets/buttons/no-thanks.png" alt="No Thanks!"/>
         </div>
       </div>
       <div id="videoContent" style="display: none">
         <div class="logo-flex-item" id="introLogo" style="visibility: hidden">
-          <img
-            class="logo-image"
-            src="@/assets/logo.png"
-            alt="The Death Rosenstock Sanctuary"
-          />
-          <img
-            id="enterButton"
-            @click="goToHome()"
-            src="@/assets/enter.png"
-            alt="Enter"
-            style="visibility: hidden"
-          />
+          <img class="logo-image" src="@/assets/logo.png" alt="The Death Rosenstock Sanctuary"/>
+          <img id="enterButton" @click="goToHome()" src="@/assets/enter.png" alt="Enter" style="visibility: hidden"/>
         </div>
         <video autoplay loop id="myVideo">
           <source src="@/assets/videos/tdrs-intro.mp4" type="video/mp4" />
@@ -59,12 +31,17 @@ export default {
   name: "Intro",
   methods: {
     playWithSound() {
+      // Start the video element by showing it
       document.getElementById("warningNotice").style.display = "none";
       document.getElementById("videoContent").style.display = "block";
       document.getElementById("myVideo").play();
+      
+      // Show shaking logo image after given time
       setTimeout(function () {
         document.getElementById("introLogo").style.visibility = "visible";
       }, 1800);
+
+      // Show enter button after given time
       setTimeout(function () {
         document.getElementById("enterButton").style.visibility = "visible";
       }, 2800);
@@ -155,6 +132,7 @@ export default {
   flex-direction: column;
 }
 
+/* light eclipse to help see logo better */
 .logo-image {
   min-height: 35vh;
   animation: shake 0.5s;
@@ -191,6 +169,7 @@ export default {
   );
 }
 
+/* light eclipse to help see button better */
 #enterButton {
   max-height: 6vh;
   background: -moz-radial-gradient(
@@ -225,6 +204,7 @@ export default {
   );
 }
 
+/* Shaking style for logo */
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);

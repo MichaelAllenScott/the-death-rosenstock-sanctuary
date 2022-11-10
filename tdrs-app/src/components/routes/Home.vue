@@ -1,68 +1,28 @@
 <template>
   <div>
     <Header />
-    <div class="bands-container">
+    <div class="bands-container animate__animated animate__zoomIn animate__faster">
       <div class="bands-header-container">
-        <img
-          class="bands-header-image"
-          src="@/assets/bands-component/band-title.png"
-          alt="Bands"
-        />
+        <img class="bands-header-image" src="@/assets/bands-component/band-title.png" alt="Bands"/>
       </div>
       <div class="bands-first-row-container">
         <div class="band-image-container">
-          <img
-            class="asob-image"
-            src="@/assets/bands-component/asob.png"
-            alt="Arrogant Sons of Bitches"
-          />
-          <img
-            class="asob-hover-image"
-            @click="navigateToBand('asob')"
-            src="@/assets/bands-component/asob-hover.png"
-            alt="Arrogant Sons of Bitches"
-          />
+          <img class="asob-image" src="@/assets/bands-component/asob.png" alt="Arrogant Sons of Bitches" />
+          <img class="asob-hover-image" @click="navigateToBand(bandAbbrvs.ASOB)" src="@/assets/bands-component/asob-hover.png" alt="Arrogant Sons of Bitches"/>
         </div>
         <div class="band-image-container">
-          <img
-            class="btmi-image"
-            src="@/assets/bands-component/btmi.png"
-            alt="Bomb The Music Industry"
-          />
-          <img
-            class="btmi-hover-image"
-            @click="navigateToBand('btmi')"
-            src="@/assets/bands-component/btmi-hover.png"
-            alt="Bomb The Music Industry!"
-          />
+          <img class="btmi-image" src="@/assets/bands-component/btmi.png" alt="Bomb The Music Industry"/>
+          <img class="btmi-hover-image" @click="navigateToBand(bandAbbrvs.BTMI)" src="@/assets/bands-component/btmi-hover.png" alt="Bomb The Music Industry!"/>
         </div>
       </div>
       <div class="bands-second-row-container">
         <div class="band-image-container">
-          <img
-            class="jr-image"
-            src="@/assets/bands-component/jr.png"
-            alt="Jeff Rosenstock"
-          />
-          <img
-            class="jr-hover-image"
-            @click="navigateToBand('jr')"
-            src="@/assets/bands-component/jr-hover.png"
-            alt="Jeff Rosenstock"
-          />
+          <img class="jr-image" src="@/assets/bands-component/jr.png" alt="Jeff Rosenstock"/>
+          <img class="jr-hover-image" @click="navigateToBand(bandAbbrvs.JR)" src="@/assets/bands-component/jr-hover.png" alt="Jeff Rosenstock" />
         </div>
         <div class="band-image-container">
-          <img
-            class="av-image"
-            src="@/assets/bands-component/av.png"
-            alt="Antarctigo Vespucci"
-          />
-          <img
-            class="av-hover-image"
-            @click="navigateToBand('av')"
-            src="@/assets/bands-component/av-hover.png"
-            alt="Antarctigo Vespucci"
-          />
+          <img class="av-image" src="@/assets/bands-component/av.png" alt="Antarctigo Vespucci" />
+          <img class="av-hover-image" @click="navigateToBand(bandAbbrvs.AV)" src="@/assets/bands-component/av-hover.png" alt="Antarctigo Vespucci" />
         </div>
       </div>
       <div class="bands-third-row-container"></div>
@@ -73,23 +33,25 @@
 <script>
 import Header from "@/components/common/Header.vue";
 import TransitionEngine from "@/common/TransitionEngine";
+import { BandAbbrvs } from "@/common/constants";
 
 export default {
   name: "Bands",
   components: {
     Header,
   },
+  data() {
+    return {
+      bandAbbrvs: BandAbbrvs
+    };
+  },
   mounted() {
     TransitionEngine.onHomeMount();
   },
   methods: {
     navigateToBand(abbrv) {
-      const bandsContainer = document.querySelector(".bands-container");
-      bandsContainer.classList.add("animate__animated");
-      bandsContainer.classList.add("animate__faster");
-      bandsContainer.classList.add("animate__zoomOut");
-      let routeName = "band-" + abbrv;
-      setTimeout(() => this.$router.push({ name: routeName }), 300);
+      TransitionEngine.triggerAnimationOnContainer("bands-container", "zoomOut", "faster");
+      setTimeout(() => this.$router.push({ name: `band-${abbrv}` }), 300);
     },
   },
 };

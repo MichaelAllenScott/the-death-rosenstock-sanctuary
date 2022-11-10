@@ -1,5 +1,40 @@
+/*
+Global Styles for all components
+*/
+
+:root {
+  --asob-red: #E81648;
+  --asob-red-dark: #AD0F35;
+  --btmi-green: #56af5b;
+  --btmi-green-dark: #3d8041;
+  --jr-purple: #a839db;
+  --jr-purple-dark: #812da8;
+  --av-blue: #19dae7;
+  --av-blue-dark: #129ea8;
+}
+
+
+/*  Font Families and common panel text */
+@font-face {
+  font-family: ManlyMenBB;
+  src: url("./assets/fonts/ManlyMenBB_bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Cabin;
+  src: url("./assets/fonts/Cabin-Regular.ttf") format("truetype");
+}
+
+.basic-panel-text {
+  font-family: Cabin;
+  font-size: 1.3em;
+  white-space: pre-line;
+}
+
+
+/* Top panel styles for Band, Album, and Song components */
 .panel-top {
-  background-image: linear-gradient(#E81648, #AD0F35);
+  background-image: linear-gradient(var(--asob-red), var(--asob-red-dark));
   padding: 1em;
   margin: 0 12em 0 12em;
   border-radius: 5px;
@@ -11,19 +46,19 @@
 }
 
 .panel-top.asob {
-  background-image: linear-gradient(#E81648, #AD0F35);
+  background-image: linear-gradient(var(--asob-red), var(--asob-red-dark));
 }
 
 .panel-top.btmi {
-  background-image: linear-gradient(#56af5b, #3d8041);
+  background-image: linear-gradient(var(--btmi-green), var(--btmi-green-dark));
 }
 
 .panel-top.jr {
-  background-image: linear-gradient(#a839db, #812da8);
+  background-image: linear-gradient(var(--jr-purple), var(--jr-purple-dark));
 }
 
 .panel-top.av {
-  background-image: linear-gradient(#19dae7, #129ea8);
+  background-image: linear-gradient(var(--av-blue), var(--av-blue-dark));
 }
 
 .panel-header {
@@ -38,30 +73,32 @@
   margin: 0 15em 0 15em;
   z-index: -1;
   position: relative;
-  border: #AD0F35 .3em solid;
+  border: var(--asob-red-dark) .3em solid;
   border-top: 0;
   border-radius: 0 0 5px 5px;
   display: flex;
 }
 
 .panel-background.asob {
-  border: #AD0F35 .3em solid;
+  border: var(--asob-red-dark) .3em solid;
 }
 
 .panel-background.btmi {
-  border: #3d8041 .3em solid;
+  border: var(--btmi-green-dark) .3em solid;
 }
 
 .panel-background.jr {
-  border: #812da8 .3em solid;
+  border: var(--jr-purple-dark) .3em solid;
 }
 
 .panel-background.av {
-  border: #129ea8 .3em solid;
+  border: var(--av-blue-dark) .3em solid;
 }
 
+
+/* Styles used for dynamic collapsible panels */
 .collapsible-panel {
-  background-image: linear-gradient(#E81648, #AD0F35);
+  background-image: linear-gradient(var(--asob-red), var(--asob-red-dark));
   padding: .8em;
   margin: .5em 12em 0 12em;
   border-radius: 5px;
@@ -70,19 +107,19 @@
 }
 
 .collapsible-panel.asob {
-  background-image: linear-gradient(#E81648, #AD0F35);
+  background-image: linear-gradient(var(--asob-red), var(--asob-red-dark));
 }
 
 .collapsible-panel.btmi {
-  background-image: linear-gradient(#56af5b, #3d8041);
+  background-image: linear-gradient(var(--btmi-green), var(--btmi-green-dark));
 }
 
 .collapsible-panel.jr {
-  background-image: linear-gradient(#a839db, #812da8);
+  background-image: linear-gradient(var(--jr-purple), var(--jr-purple-dark));
 }
 
 .collapsible-panel.av {
-  background-image: linear-gradient(#19dae7, #129ea8);
+  background-image: linear-gradient(var(--av-blue), var(--av-blue-dark));
 }
 
 .collapsible-panel:hover {
@@ -113,46 +150,41 @@
   padding: 2em;
   margin: -1em 15em .5em 15em;
   z-index: -1;
-  border: #AD0F35 .3em solid;
+  border: var(--asob-red-dark) .3em solid;
   border-radius: 5px;
-
   overflow-y: hidden;
-
   transition-property: all;
   transition-duration: .3s;
 }
 
 .collapsible-panel-background.asob {
-  border: #AD0F35 .3em solid;
+  border: var(--asob-red-dark) .3em solid;
 }
 
 .collapsible-panel-background.btmi {
-  border: #3d8041 .3em solid;
+  border: var(--btmi-green-dark) .3em solid;
 }
 
 .collapsible-panel-background.jr {
-  border: #812da8 .3em solid;
+  border: var(--jr-purple-dark) .3em solid;
 }
 
 .collapsible-panel-background.av {
-  border: #129ea8 .3em solid;
+  border: var(--av-blue-dark) .3em solid;
 }
-
 
 .collapsible-panel-background.closed {
   max-height: 0vh;
   padding: 0;
 }
 
+
+/* Back arrow used on all top level panels */
 .back-flex-group {
   display: flex;
   align-items: center;
   z-index: 1;
   position: relative;
-  flex: 1;
-}
-
-.end-flex-group {
   flex: 1;
 }
 
@@ -181,31 +213,12 @@
   max-height: 5vh;
 }
 
-.band-image.asob {
-  margin-top: -9em;
-  max-height: 30vh;
-}
-
-.band-image.btmi {
-  margin-top: -9em;
-  max-height: 20vh;
-}
-
-.band-image.jr {
-  margin-top: -9em;
-  max-height: 20vh;
-  transform: rotate(-2deg);
-}
-
-.band-image.av {
-  margin-top: -12em;
-  max-height: 26vh;
+.end-flex-group {
+  flex: 1;
 }
 
 
-
-
-/* Grow Shadow */
+/* Grow Shadow used to make elements pop */
 .hvr-grow-shadow {
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -217,7 +230,9 @@
   transition-property: box-shadow, transform;
 }
 
-.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+.hvr-grow-shadow:hover,
+.hvr-grow-shadow:focus,
+.hvr-grow-shadow:active {
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.02);
   transform: scale(1.02);
@@ -234,41 +249,10 @@
   transition-property: box-shadow, transform;
 }
 
-.hvr-grow-shadow-fast:hover, .hvr-grow-shadow-fast:focus, .hvr-grow-shadow-fast:active {
+.hvr-grow-shadow-fast:hover,
+.hvr-grow-shadow-fast:focus,
+.hvr-grow-shadow-fast:active {
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.10);
   transform: scale(1.10) rotate(-3deg);
-}
-
-.hvr-bounce-in {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-}
-
-.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-}
-
-@font-face {
-  font-family: ManlyMenBB;
-  src: url("./assets/fonts/ManlyMenBB_bold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: Cabin;
-  src: url("./assets/fonts/Cabin-Regular.ttf") format("truetype");
-}
-
-.basic-panel-text {
-  font-family: Cabin;
-  font-size: 1.3em;
-  white-space: pre-line;
 }

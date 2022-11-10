@@ -7,7 +7,7 @@ import Band from "@/components/routes/Band.vue";
 import Album from "@/components/routes/Album.vue";
 import Song from "@/components/routes/Song.vue";
 
-import { BandEnum } from "@/common/constants";
+import { BandAbbrvs } from "@/common/constants";
 
 const routes = [
   {
@@ -29,73 +29,73 @@ const routes = [
     path: "/asob",
     name: "band-asob",
     component: Band,
-    props: { bandEnum: BandEnum.ASOB, bandAbbrv: "asob" }
+    props: { bandAbbrv: BandAbbrvs.ASOB }
   },
   {
     path: "/asob/album/:albumOrderIndex",
     name: "album-asob",
     component: Album,
-    props: { bandEnum: BandEnum.ASOB, bandAbbrv: "asob" }
+    props: { bandAbbrv: BandAbbrvs.ASOB }
   },
   {
     path: "/asob/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-asob",
     component: Song,
-    props: { bandEnum: BandEnum.ASOB, bandAbbrv: "asob" }
+    props: { bandAbbrv: BandAbbrvs.ASOB }
   },
   {
     path: "/btmi",
     name: "band-btmi",
     component: Band,
-    props: { bandEnum: BandEnum.BTMI, bandAbbrv: "btmi" }
+    props: { bandAbbrv: BandAbbrvs.BTMI }
   },
   {
     path: "/btmi/album/:albumOrderIndex",
     name: "album-btmi",
     component: Album,
-    props: { bandEnum: BandEnum.BTMI, bandAbbrv: "btmi" }
+    props: {bandAbbrv: BandAbbrvs.BTMI }
   },
   {
     path: "/btmi/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-btmi",
     component: Song,
-    props: { bandEnum: BandEnum.BTMI, bandAbbrv: "btmi" }
+    props: { bandAbbrv: BandAbbrvs.BTMI }
   },
   {
     path: "/jr",
     name: "band-jr",
     component: Band,
-    props: { bandEnum: BandEnum.JR, bandAbbrv: "jr" }
+    props: { bandAbbrv: BandAbbrvs.JR }
   },
   {
     path: "/jr/album/:albumOrderIndex",
     name: "album-jr",
     component: Album,
-    props: { bandEnum: BandEnum.JR, bandAbbrv: "jr" }
+    props: { bandAbbrv: BandAbbrvs.JR }
   },
   {
     path: "/jr/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-jr",
     component: Song,
-    props: { bandEnum: BandEnum.JR, bandAbbrv: "jr" }
+    props: { bandAbbrv: BandAbbrvs.JR }
   },
   {
     path: "/av",
     name: "band-av",
     component: Band,
-    props: { bandEnum: BandEnum.AV, bandAbbrv: "av" }
+    props: { bandAbbrv: BandAbbrvs.AV }
   },
   {
     path: "/av/album/:albumOrderIndex",
     name: "album-av",
     component: Album,
-    props: { bandEnum: BandEnum.AV, bandAbbrv: "av" }
+    props: { bandAbbrv: BandAbbrvs.AV }
   },
   {
     path: "/av/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-av",
     component: Song,
-    props: { bandEnum: BandEnum.AV, bandAbbrv: "av" }
+    props: { bandAbbrv: BandAbbrvs.AV }
   }
 ];
 

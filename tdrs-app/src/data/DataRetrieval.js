@@ -2,8 +2,8 @@ import allBandData from "@/data/bands.json";
 
 const DataRetrieval = {
   retrieveBandDataWithId(bandEnum) {
-    let bandData = {}
-    let band = allBandData.find(x => x.id === bandEnum);
+    const bandData = {}
+    const band = allBandData.find(x => x.id === bandEnum);
     
     if (band) {
       bandData = band;  
@@ -13,10 +13,10 @@ const DataRetrieval = {
   },
 
   retrieveAlbumDataWithId(bandEnum, albumId) {
-    let albumData = {};
-    let bandData = this.retrieveBandDataWithId(bandEnum);
+    const albumData = {};
+    const bandData = this.retrieveBandDataWithId(bandEnum);
 
-    let album = bandData.albums.find(x => x.id == albumId);
+    const album = bandData.albums.find(x => x.id == albumId);
     
     if (album) {
       albumData = album;  
@@ -26,8 +26,8 @@ const DataRetrieval = {
   },
 
   retrieveAlbumDataWithBandAndId(albumId, bandData) {
-    let albumData = {};
-    let album = bandData.albums.find(x => x.id == albumId);
+    const albumData = {};
+    const album = bandData.albums.find(x => x.id == albumId);
 
     if (album) {
       albumData = album;  
@@ -37,11 +37,11 @@ const DataRetrieval = {
   },
 
   retrieveSongDataWithBandAndId(songId, albumId, bandData) {
-    let songData = {};
-    let album = bandData.albums.find(x => x.id == albumId);
+    const songData = {};
+    const album = bandData.albums.find(x => x.id == albumId);
 
     if (album) {
-      let song = album.songs.find(x => x.id == songId);
+      const song = album.songs.find(x => x.id == songId);
       if (song) {
         songData = song; 
       }
