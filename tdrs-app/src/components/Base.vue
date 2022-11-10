@@ -1,12 +1,14 @@
 <template>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <div class="container">
-    <router-view />
+  <div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import Router from '@/router'; 
+import Router from '@/router';
 
 export default {
   name: "Base",

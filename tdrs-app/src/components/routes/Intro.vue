@@ -20,8 +20,8 @@
           <img
             class="yes-button conf-button"
             @click="playWithSound()"
-            src="@/assets/buttons/hell-yeah.png"
-            alt="Hell Yeah!"
+            src="@/assets/buttons/heck-yeah.png"
+            alt="Heck Yeah!"
           />
           <img
             class="no-button conf-button"

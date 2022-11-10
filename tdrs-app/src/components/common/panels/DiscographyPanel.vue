@@ -60,7 +60,6 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 3em;
   }
   
   .album-image {

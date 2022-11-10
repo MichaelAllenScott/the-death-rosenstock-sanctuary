@@ -46,30 +46,7 @@
             alt="Decorative Line"
           />
           <p class="description-text basic-panel-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa
-            massa ultricies mi quis hendrerit dolor magna. Adipiscing vitae
-            proin sagittis nisl rhoncus mattis. Mattis ullamcorper velit sed
-            ullamcorper morbi tincidunt. Ipsum faucibus vitae aliquet nec
-            ullamcorper sit. Elit sed vulputate mi sit amet mauris. Senectus et
-            netus et malesuada fames. Nunc mi ipsum faucibus vitae aliquet nec
-            ullamcorper. Quam quisque id diam vel quam elementum. Mi bibendum
-            neque egestas congue quisque egestas diam in. Bibendum est ultricies
-            integer quis auctor elit sed. Etiam erat velit scelerisque in dictum
-            non consectetur a. Lacus laoreet non curabitur gravida arcu. Sed
-            tempus urna et pharetra pharetra massa massa ultricies mi. Leo a
-            diam sollicitudin tempor. Odio ut enim blandit volutpat. Sed euismod
-            nisi porta lorem mollis aliquam ut porttitor leo. Cursus in hac
-            habitasse platea dictumst quisque sagittis purus. Ultrices mi tempus
-            imperdiet nulla. Varius morbi enim nunc faucibus a. Malesuada
-            pellentesque elit eget gravida cum. Aliquam nulla facilisi cras
-            fermentum odio eu. Dui faucibus in ornare quam viverra. Tincidunt
-            vitae semper quis lectus nulla at volutpat. Diam vel quam elementum
-            pulvinar etiam non quam lacus. Justo laoreet sit amet cursus sit
-            amet dictum sit. Elit pellentesque habitant morbi tristique. Egestas
-            egestas fringilla phasellus faucibus scelerisque eleifend donec
-            pretium. Porttitor massa id neque aliquam vestibulum. Velit
-            dignissim sodales ut eu sem. Neque sodales ut etiam sit.
+            {{album.description}}
           </p>
         </div>
         <div></div>
@@ -80,8 +57,8 @@
         :albumOrderIndex="album.orderIndex"
         :bandAbbrv="bandAbbrv"
       />
-      <JeffsExplanationPanel :bandAbbrv="bandAbbrv" />
-      <MoreInfoPanel :bandAbbrv="bandAbbrv" />
+      <JeffsExplanationPanel v-if="album.explanation" :bandAbbrv="bandAbbrv" :explanationText="album.explanation" />
+      <MoreInfoPanel v-if="album.moreInfo" :bandAbbrv="bandAbbrv" :infoText="album.moreInfo" />
     </div>
   </div>
 </template>

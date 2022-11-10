@@ -34,7 +34,7 @@
 .panel-background {
   background-image: url("./assets/old_wall.png");
   background-repeat: repeat;
-  padding: 2.5em;
+  padding: 2.5em 5em 2.5em 5em;
   margin: 0 15em 0 15em;
   z-index: -1;
   position: relative;
@@ -117,7 +117,6 @@
   border-radius: 5px;
 
   overflow-y: hidden;
-  max-height: 100vh;
 
   transition-property: all;
   transition-duration: .3s;
@@ -270,5 +269,6 @@
 
 .basic-panel-text {
   font-family: Cabin;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  white-space: pre-line;
 }

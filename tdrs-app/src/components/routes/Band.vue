@@ -48,33 +48,8 @@
             </ul>
           </div>
         </div>
-        <div>
-          <p class="basic-panel-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa
-            massa ultricies mi quis hendrerit dolor magna. Adipiscing vitae
-            proin sagittis nisl rhoncus mattis. Mattis ullamcorper velit sed
-            ullamcorper morbi tincidunt. Ipsum faucibus vitae aliquet nec
-            ullamcorper sit. Elit sed vulputate mi sit amet mauris. Senectus et
-            netus et malesuada fames. Nunc mi ipsum faucibus vitae aliquet nec
-            ullamcorper. Quam quisque id diam vel quam elementum. Mi bibendum
-            neque egestas congue quisque egestas diam in. Bibendum est ultricies
-            integer quis auctor elit sed. Etiam erat velit scelerisque in dictum
-            non consectetur a. Lacus laoreet non curabitur gravida arcu. Sed
-            tempus urna et pharetra pharetra massa massa ultricies mi. Leo a
-            diam sollicitudin tempor. Odio ut enim blandit volutpat. Sed euismod
-            nisi porta lorem mollis aliquam ut porttitor leo. Cursus in hac
-            habitasse platea dictumst quisque sagittis purus. Ultrices mi tempus
-            imperdiet nulla. Varius morbi enim nunc faucibus a. Malesuada
-            pellentesque elit eget gravida cum. Aliquam nulla facilisi cras
-            fermentum odio eu. Dui faucibus in ornare quam viverra. Tincidunt
-            vitae semper quis lectus nulla at volutpat. Diam vel quam elementum
-            pulvinar etiam non quam lacus. Justo laoreet sit amet cursus sit
-            amet dictum sit. Elit pellentesque habitant morbi tristique. Egestas
-            egestas fringilla phasellus faucibus scelerisque eleifend donec
-            pretium. Porttitor massa id neque aliquam vestibulum. Velit
-            dignissim sodales ut eu sem. Neque sodales ut etiam sit.
-          </p>
+        <div class="band-description">
+          <p class="basic-panel-text">{{band.description}}</p>
         </div>
         <div></div>
       </div>
@@ -83,8 +58,7 @@
         :albums="this.albums"
         :bandAbbrv="bandAbbrv"
       />
-      <MoreInfoPanel :bandAbbrv="bandAbbrv" />
-      <JeffsExplanationPanel :bandAbbrv="bandAbbrv" />
+      <MoreInfoPanel v-if="band.moreInfo" :bandAbbrv="bandAbbrv" :infoText="band.moreInfo" />
     </div>
   </div>
 </template>
@@ -94,7 +68,6 @@
 import Header from "@/components/common/Header.vue";
 import DiscographyPanel from "@/components/common/panels/DiscographyPanel";
 import MoreInfoPanel from "@/components/common/panels/MoreInfoPanel";
-import JeffsExplanationPanel from "@/components/common/panels/JeffsExplanationPanel";
 import TransitionEngine from "@/common/TransitionEngine";
 
 export default {
@@ -102,24 +75,16 @@ export default {
   components: {
     Header,
     DiscographyPanel,
-    MoreInfoPanel,
-    JeffsExplanationPanel,
+    MoreInfoPanel
   },
   props: {
-    IncomingAnimation: {
-      default: "fadeInRightBig",
-      type: String,
-    },
-    OutgoingAnimation: {
-      default: "fadeOutLeftBig",
-      type: String,
-    },
     bandAbbrv: String,
   },
   data() {
     return {
       band: {
         name: "",
+        description: "",
         bandMembers: [],
       },
       albums: [],
@@ -205,8 +170,11 @@ export default {
 
 .band-info-container {
   position: relative;
-  padding-right: 5vw;
-  padding-top: 3vh;
+  padding: 3vh 4vw 0 1vw;
+}
+
+.band-description {
+  padding: 1.5em 0 0 1.5em;
 }
 
 .photo-container {

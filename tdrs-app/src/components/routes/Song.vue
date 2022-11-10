@@ -41,11 +41,16 @@
             alt="Decorative Line"
           />
           <iframe class="song-video" :src="song.youtubeUrl"></iframe>
+          <div v-if="song.lyrics" class="lyrics-container">
+            <div class="lyrics-header">Lyrics:</div>
+            <div class="lyrics-text">{{song.lyrics}}</div>
+          </div>
         </div>
+        
       </div>
     </div>
-    <JeffsExplanationPanel :bandAbbrv="bandAbbrv" />
-    <MoreInfoPanel :bandAbbrv="bandAbbrv" />
+    <JeffsExplanationPanel v-if="song.explanation" :bandAbbrv="bandAbbrv" :explanationText="song.explanation" />
+    <MoreInfoPanel v-if="song.moreInfo" :bandAbbrv="bandAbbrv" :infoText="song.moreInfo" />
   </div>
 </template>
 
@@ -151,5 +156,22 @@ export default {
   margin-bottom: -4em;
   margin-left: 1em;
   filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.5));
+}
+
+.lyrics-container {
+  margin: 3rem 15rem 1rem 15rem;
+}
+
+.lyrics-header {
+  font-family: ManlyMenBB;
+  font-size: 1.75em;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.lyrics-text {
+  font-family: Cabin;
+  font-size: 1.3em;
+  white-space: pre-line;  
 }
 </style>

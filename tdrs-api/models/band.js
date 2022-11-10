@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bandSchema = new mongoose.Schema({
   name: String,
   bandAbbrv: String,
+  description: String,
+  moreInfo: String,
   orderIndex: Number,
   bandMembers: [String],
 });
