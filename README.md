@@ -1,4 +1,4 @@
-# ![The Death Rosenstock Sanctuary](./src/assets/logo.png)
+# ![The Death Rosenstock Sanctuary](./tdrs-app/src/assets/logo.png)
 
 ## Description
 A website dedicated to cataloging the all the music of Jeff Rosenstock
