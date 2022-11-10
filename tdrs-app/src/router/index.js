@@ -32,13 +32,13 @@ const routes = [
     props: { bandEnum: BandEnum.ASOB, bandAbbrv: "asob" }
   },
   {
-    path: "/asob/album/:albumId",
+    path: "/asob/album/:albumOrderIndex",
     name: "album-asob",
     component: Album,
     props: { bandEnum: BandEnum.ASOB, bandAbbrv: "asob" }
   },
   {
-    path: "/asob/album/:albumId/song/:songId",
+    path: "/asob/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-asob",
     component: Song,
     props: { bandEnum: BandEnum.ASOB, bandAbbrv: "asob" }
@@ -50,13 +50,13 @@ const routes = [
     props: { bandEnum: BandEnum.BTMI, bandAbbrv: "btmi" }
   },
   {
-    path: "/btmi/album/:albumId",
+    path: "/btmi/album/:albumOrderIndex",
     name: "album-btmi",
     component: Album,
     props: { bandEnum: BandEnum.BTMI, bandAbbrv: "btmi" }
   },
   {
-    path: "/btmi/album/:albumId/song/:songId",
+    path: "/btmi/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-btmi",
     component: Song,
     props: { bandEnum: BandEnum.BTMI, bandAbbrv: "btmi" }
@@ -68,13 +68,13 @@ const routes = [
     props: { bandEnum: BandEnum.JR, bandAbbrv: "jr" }
   },
   {
-    path: "/jr/album/:albumId",
+    path: "/jr/album/:albumOrderIndex",
     name: "album-jr",
     component: Album,
     props: { bandEnum: BandEnum.JR, bandAbbrv: "jr" }
   },
   {
-    path: "/jr/album/:albumId/song/:songId",
+    path: "/jr/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-jr",
     component: Song,
     props: { bandEnum: BandEnum.JR, bandAbbrv: "jr" }
@@ -86,13 +86,13 @@ const routes = [
     props: { bandEnum: BandEnum.AV, bandAbbrv: "av" }
   },
   {
-    path: "/av/album/:albumId",
+    path: "/av/album/:albumOrderIndex",
     name: "album-av",
     component: Album,
     props: { bandEnum: BandEnum.AV, bandAbbrv: "av" }
   },
   {
-    path: "/av/album/:albumId/song/:songId",
+    path: "/av/album/:albumOrderIndex/song/:songOrderIndex",
     name: "song-av",
     component: Song,
     props: { bandEnum: BandEnum.AV, bandAbbrv: "av" }

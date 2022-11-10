@@ -6,8 +6,8 @@
     </div>
     <div v-bind:class="['collapsible-panel-background', bandAbbrv, { closed: panelClosed }]">
       <div class="songs-container">
-        <div class="songs-item" v-for="(song, index) in songs" :key="song.id">
-          <p class="song-title" @click="navigateToSong(song.id)">{{song.name}}</p>
+        <div class="songs-item" v-for="(song, index) in songs" :key="song.orderIndex">
+          <p class="song-title" @click="navigateToSong(song.orderIndex)">{{song.name}}</p>
           <img v-if="index !== songs.length - 1" class="song-title-line" src="@/assets/line.png" alt="Decorative Line">
         </div>
       </div>
@@ -22,7 +22,7 @@
     name: "SongsPanel",
     props: {
       songs: Array,
-      albumId: Number,
+      albumOrderIndex: Number,
       bandAbbrv: String
     },
     data() {
@@ -38,10 +38,10 @@
       },
       getAlbumUrl(album) {
         var images = require.context('@/assets/album-images/asob/', false, /\.jpg$/)
-        return images('./' + album.id + ".jpg")
+        return images('./' + album.orderIndex + ".jpg")
       },
-      navigateToSong(songId) {
-        this.$emit('navigate-to-song', songId);
+      navigateToSong(songOrderIndex) {
+        this.$emit('navigate-to-song', songOrderIndex);
       }
     }
   };

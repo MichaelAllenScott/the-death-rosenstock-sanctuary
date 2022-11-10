@@ -6,8 +6,8 @@
     </div>
     <div v-bind:class="['collapsible-panel-background', bandAbbrv, { closed: panelClosed }]">
       <div class="album-container">
-        <div class="album-item" v-for="album in albums" :key="album.id">
-          <img class="album-image hvr-grow-shadow-fast" :src="getAlbumUrl(album)" @click="navigateToAlbum(album.id)" alt="Discography">
+        <div class="album-item" v-for="album in albums" :key="album.orderIndex">
+          <img class="album-image hvr-grow-shadow-fast" :src="getAlbumUrl(album)" @click="navigateToAlbum(album.orderIndex, album)" alt="Discography">
           <p class="album-title">{{album.name}}<br/>({{album.year}})</p>
         </div>
       </div>
@@ -37,7 +37,7 @@
       },
       getAlbumUrl(album) {
         var images = require.context('@/assets/album-images', true, /\.jpg$/);
-        return images(`./${this.$props.bandAbbrv}/` + album.id + ".jpg");
+        return images(`./${this.$props.bandAbbrv}/` + album.orderIndex + ".jpg");
       },
       navigateToAlbum(albumId) {
         this.$emit('navigate-to-album', albumId);
