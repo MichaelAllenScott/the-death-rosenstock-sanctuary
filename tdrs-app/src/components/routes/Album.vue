@@ -61,9 +61,11 @@ export default {
       },
     };
   },
+  created() {
+    this.getAlbumData();
+  },
   mounted() {
     TransitionEngine.onPanelMount();
-    this.getAlbumData();
   },
   methods: {
     navigateToBand() {

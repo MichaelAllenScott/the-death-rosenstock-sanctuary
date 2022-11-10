@@ -59,9 +59,11 @@ export default {
       },
     };
   },
+  created() {
+    this.getSongData();
+  },
   mounted() {
     TransitionEngine.onPanelMount();
-    this.getSongData();
   },
   methods: {
     navigateToAlbum() {

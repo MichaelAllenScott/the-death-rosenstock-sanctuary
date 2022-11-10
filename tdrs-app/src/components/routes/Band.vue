@@ -68,10 +68,12 @@ export default {
       albums: [],
     };
   },
-  mounted() {
-    TransitionEngine.onPanelMount();
+  created() {
     this.getBandData();
     this.getAlbumData();
+  },
+  mounted() {
+    TransitionEngine.onPanelMount();
   },
   methods: {
     navigateToBands() {
