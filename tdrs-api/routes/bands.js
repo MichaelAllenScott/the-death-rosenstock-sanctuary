@@ -29,7 +29,8 @@ router.get('/:bandAbbrv', async (req, res) => {
 //Get all band albums by abbreviation
 router.get('/:bandAbbrv/albums', async (req, res) => {
   try {
-    const albums = await Album.find({bandAbbrv: req.params.bandAbbrv});
+    //sorting albums in desc order by orderIndexs
+    const albums = await Album.find({bandAbbrv: req.params.bandAbbrv}).sort({orderIndex: 1});
     return res.status(200).json(albums);
   } catch (e) {
     return res.status(500).json(e);
@@ -56,7 +57,11 @@ router.get('/:bandAbbrv/albums/:orderIndex/songs', async (req, res) => {
     if (album === null) {
       return res.status(404).json(`No Album found with the band abbreviation: '${req.params.bandAbbrv}' and the order index of: '${req.params.orderIndex}'`);
     }
-    return res.status(200).json(album.songs);
+    const songs = album.songs;
+    if (songs.length > 0) {
+      songs.sort((a, b) => { return a.orderIndex - b.orderIndex });
+    }
+    return res.status(200).json(songs);
   } catch (e) {
     return res.status(500).json(e);
   }

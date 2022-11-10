@@ -231,6 +231,95 @@
           },
           {
             "orderIndex": 2,
+            "name": "Worry.",
+            "bandAbbrv": "jr",
+            "year": 2016,
+            "ep": false,
+            "songs": [
+              {
+                "orderIndex": 1,
+                "name": "We Begged 2 Explode",
+                "youtubeUrl": "https://www.youtube.com/embed/4Hc3uVUgzIU"
+              },
+              {
+                "orderIndex": 2,
+                "name": "Pash Rash",
+                "youtubeUrl": "https://www.youtube.com/embed/TylMST0xVDw"
+              },
+              {
+                "orderIndex": 3,
+                "name": "Festival Song",
+                "youtubeUrl": "https://www.youtube.com/embed/-YMDx--Foag"
+              },
+              {
+                "orderIndex": 4,
+                "name": "Staring Out the Window At Your Old Apartment",
+                "youtubeUrl": "https://www.youtube.com/embed/Y0CLzbUV-eo"
+              },
+              {
+                "orderIndex": 5,
+                "name": "Wave Goodnight to Me",
+                "youtubeUrl": "https://www.youtube.com/embed/6R3tDkViwiE"
+              },
+              {
+                "orderIndex": 6,
+                "name": "To Be a Ghost...",
+                "youtubeUrl": "https://www.youtube.com/embed/JPzLB8BrZqY"
+              },
+              {
+                "orderIndex": 7,
+                "name": "Pietro, 60 Years Old",
+                "youtubeUrl": "https://www.youtube.com/embed/P6QfNA6do6U"
+              },
+              {
+                "orderIndex": 8,
+                "name": "I Did Something Weird Last Night",
+                "youtubeUrl": "https://www.youtube.com/embed/1ecYe0wiidc"
+              },
+              {
+                "orderIndex": 9,
+                "name": "Blast Damage Days",
+                "youtubeUrl": "https://www.youtube.com/embed/CcILGVVscEY"
+              },
+              {
+                "orderIndex": 10,
+                "name": "Bang on the Door",
+                "youtubeUrl": "https://www.youtube.com/embed/jOoVvnpEswQ"
+              },
+              {
+                "orderIndex": 11,
+                "name": "Rainbow",
+                "youtubeUrl": "https://www.youtube.com/embed/6BF6QYFE1lU"
+              },
+              {
+                "orderIndex": 12,
+                "name": "Planet Luxury",
+                "youtubeUrl": "https://www.youtube.com/embed/LyAH0Eo6Kys"
+              },
+              {
+                "orderIndex": 13,
+                "name": "June 21st",
+                "youtubeUrl": "https://www.youtube.com/embed/LyAH0Eo6Kys"
+              },
+              {
+                "orderIndex": 14,
+                "name": "The Fuzz",
+                "youtubeUrl": "https://www.youtube.com/embed/LyAH0Eo6Kys"
+              },
+              {
+                "orderIndex": 15,
+                "name": "...While You're Alive",
+                "youtubeUrl": "https://www.youtube.com/embed/LyAH0Eo6Kys"
+              },
+              {
+                "orderIndex": 16,
+                "name": "Perfect Sound Whatever",
+                "youtubeUrl": "https://www.youtube.com/embed/LyAH0Eo6Kys"
+              }
+            ]
+          },
+          {
+            "orderIndex": 3,
             "name": "SKA DREAM",
             "bandAbbrv": "jr",
             "year": 2021,
