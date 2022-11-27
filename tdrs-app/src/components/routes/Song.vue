@@ -37,6 +37,7 @@ import Header from "@/components/common/Header.vue";
 import MoreInfoPanel from "@/components/common/panels/MoreInfoPanel";
 import JeffsExplanationPanel from "@/components/common/panels/JeffsExplanationPanel";
 import TransitionEngine from "@/common/TransitionEngine";
+import DataRetrieval from "@/data/DataRetrieval";
 
 export default {
   name: "Song",
@@ -60,7 +61,11 @@ export default {
     };
   },
   created() {
-    this.getSongData();
+    if (process.env.VUE_APP_USE_API === "true") {
+      this.getSongData();
+    } else {
+      this.getStaticSongData();
+    }
   },
   mounted() {
     TransitionEngine.onPanelMount();
@@ -76,6 +81,10 @@ export default {
     getAlbumUrl() {
       const images = require.context("@/assets/album-images", true, /\.jpg$/);
       return images(`./${this.$props.bandAbbrv}/${this.albumOrderIndex}.jpg`);
+    },
+    getStaticSongData() {
+      let bandData = DataRetrieval.retrieveBandDataWithId(this.$props.bandAbbrv);
+      this.songData = DataRetrieval.retrieveSongDataWithBandAndId(this.songOrderIndex, this.albumOrderIndex, bandData);
     },
     async getSongData() {
       const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}/albums/${this.albumOrderIndex}/songs/${this.songOrderIndex}`);
