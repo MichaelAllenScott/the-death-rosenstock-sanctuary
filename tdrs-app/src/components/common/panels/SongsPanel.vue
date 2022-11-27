@@ -75,7 +75,7 @@
   .song-title-line {
     max-width: 50%;
     align-self: center;
-    opacity: 75%;
+    opacity: 75% !important;
     z-index: 0;
   }
     
