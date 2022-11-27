@@ -46,6 +46,7 @@
 import Header from "@/components/common/Header.vue";
 import DiscographyPanel from "@/components/common/panels/DiscographyPanel";
 import MoreInfoPanel from "@/components/common/panels/MoreInfoPanel";
+import DataRetrieval from "@/data/DataRetrieval";
 import TransitionEngine from "@/common/TransitionEngine";
 
 export default {
@@ -69,8 +70,12 @@ export default {
     };
   },
   created() {
-    this.getBandData();
-    this.getAlbumData();
+    if (process.env.VUE_APP_USE_API === "true") {
+      this.getBandData();
+      this.getAlbumData();
+    } else {
+      this.getStaticBandData()
+    }
   },
   mounted() {
     TransitionEngine.onPanelMount();
@@ -92,6 +97,10 @@ export default {
     },
     getBandPhotoUrl() {
       return require("@/assets/band-images/" + this.$props.bandAbbrv + ".png");
+    },
+    getStaticBandData() {
+      this.band = DataRetrieval.retrieveBandDataWithId(this.$props.bandAbbrv);
+      this.albums = this.band.albums;
     },
     async getBandData() {
       const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}`);
