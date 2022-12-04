@@ -9,7 +9,7 @@
         <div class="warning-text">We cool?</div>
         <img class="div-line" src="@/assets/line-white.png" alt="Decorative Line" />
         <div class="button-container">
-          <img class="yes-button conf-button" @click="playWithSound()" src="@/assets/buttons/heck-yeah.png" alt="Heck Yeah!"/>
+          <img class="yes-button conf-button" @click="playWithSound()" src="@/assets/buttons/hell-yeah.png" alt="Heck Yeah!"/>
           <img class="no-button conf-button" @click="goToHome()" src="@/assets/buttons/no-thanks.png" alt="No Thanks!"/>
         </div>
       </div>

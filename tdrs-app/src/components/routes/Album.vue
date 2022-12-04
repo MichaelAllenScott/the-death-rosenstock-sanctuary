@@ -93,8 +93,7 @@ export default {
       return images(`./${this.$props.bandAbbrv}-hover.png`);
     },
     getStaticAlbumData() {
-      let bandData = DataRetrieval.retrieveBandDataWithId(this.$props.bandAbbrv);
-      this.album = DataRetrieval.retrieveAlbumDataWithBandAndId(this.albumOrderIndex, bandData);
+      this.album = DataRetrieval.retrieveAlbumData(this.$props.bandAbbrv, this.albumOrderIndex);
     },
     async getAlbumData() {
       const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}/albums/${this.albumOrderIndex}`);
