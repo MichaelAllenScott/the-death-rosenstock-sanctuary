@@ -99,7 +99,7 @@ export default {
       return require("@/assets/band-images/" + this.$props.bandAbbrv + ".png");
     },
     getStaticBandData() {
-      this.band = DataRetrieval.retrieveBandDataWithId(this.$props.bandAbbrv);
+      this.band = DataRetrieval.retrieveBandData(this.$props.bandAbbrv);
       this.albums = this.band.albums;
     },
     async getBandData() {

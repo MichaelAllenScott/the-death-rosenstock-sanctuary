@@ -83,8 +83,7 @@ export default {
       return images(`./${this.$props.bandAbbrv}/${this.albumOrderIndex}.jpg`);
     },
     getStaticSongData() {
-      let bandData = DataRetrieval.retrieveBandDataWithId(this.$props.bandAbbrv);
-      this.songData = DataRetrieval.retrieveSongDataWithBandAndId(this.songOrderIndex, this.albumOrderIndex, bandData);
+      this.song = DataRetrieval.retrieveSongData(this.$props.bandAbbrv, this.albumOrderIndex, this.songOrderIndex);
     },
     async getSongData() {
       const response = await fetch(`${process.env.VUE_APP_API_URL}bands/${this.$props.bandAbbrv}/albums/${this.albumOrderIndex}/songs/${this.songOrderIndex}`);
