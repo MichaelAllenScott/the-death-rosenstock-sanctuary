@@ -172,131 +172,137 @@ export default {
 
 @media (min-width:320px) {
   .bands-first-row-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-content: space-evenly;
+    margin-bottom: 0;
+    margin-top: 1.5em;
   }
 
   .bands-second-row-container {
     flex-direction: column;
     align-content: space-evenly;
+    margin-top: 0;
   }
 
   .bands-header-image {
-    max-height: 8vh;
-    margin-top: 4em;
+    max-height: 11vh;
+    margin-top: 3em;
   }
 
   .asob-image {
-    max-height: 30vh;
+    max-height: 25vh;
   }
 
   .asob-hover-image {
-    max-height: 30vh;
+    max-height: 25vh;
   }
 
   .asob-hover-image:hover {
-    max-height: 30vh;
+    max-height: 25vh;
   }
 
   .btmi-image {
-    max-height: 15vh;
+    max-height: 11vh;
   }
 
   .btmi-hover-image {
-    max-height: 15vh;
+    max-height: 11vh;
   }
 
   .btmi-hover-image:hover {
-    max-height: 15vh;
+    max-height: 11vh;
   }
 
   .jr-image {
-    max-height: 12vh;
+    max-height: 9vh;
   }
 
   .jr-hover-image {
-    max-height: 12vh;
+    max-height: 9vh;
   }
 
   .jr-hover-image:hover {
-    max-height: 12vh;
+    max-height: 9vh;
   }
 
   .av-image {
-    max-height: 22vh;
+    max-height: 17vh;
   }
 
   .av-hover-image {
-    max-height: 22vh;
+    max-height: 17vh;
   }
 
   .av-hover-image:hover {
-    max-height: 22vh;
+    max-height: 17vh;
   }
 }
 
 @media (min-width:481px) {
   .bands-first-row-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-content: space-evenly;
+    margin-bottom: 0;
+    margin-top: 1.5em;
   }
 
   .bands-second-row-container {
     flex-direction: column;
     align-content: space-evenly;
+    margin-top: 0;
   }
 
   .bands-header-image {
-    max-height: 8vh;
-    margin-top: 4em;
+    max-height: 11vh;
+    margin-top: 3em;
   }
-  
+
   .asob-image {
-    max-height: 18vh;
+    max-height: 25vh;
   }
 
   .asob-hover-image {
-    max-height: 18vh;
+    max-height: 25vh;
   }
 
   .asob-hover-image:hover {
-    max-height: 18vh;
+    max-height: 25vh;
   }
 
   .btmi-image {
-    max-height: 8vh;
+    max-height: 11vh;
   }
 
   .btmi-hover-image {
-    max-height: 8vh;
+    max-height: 11vh;
   }
 
   .btmi-hover-image:hover {
-    max-height: 8vh;
+    max-height: 11vh;
   }
 
   .jr-image {
-    max-height: 6vh;
+    max-height: 9vh;
   }
 
   .jr-hover-image {
-    max-height: 6vh;
+    max-height: 9vh;
   }
 
   .jr-hover-image:hover {
-    max-height: 6vh;
+    max-height: 9vh;
   }
 
   .av-image {
-    max-height: 10vh;
+    max-height: 17vh;
   }
 
   .av-hover-image {
-    max-height: 10vh;
+    max-height: 17vh;
   }
 
   .av-hover-image:hover {
-    max-height: 10vh;
+    max-height: 17vh;
   }
 }
 
@@ -308,6 +314,59 @@ export default {
   .bands-second-row-container {
     flex-direction: row;
   }
+
+  .bands-header-image {
+    max-height: 10vh;
+    margin-top: 3em;
+  }
+
+  .asob-image {
+    max-height: 25vh;
+  }
+
+  .asob-hover-image {
+    max-height: 25vh;
+  }
+
+  .asob-hover-image:hover {
+    max-height: 25vh;
+  }
+
+  .btmi-image {
+    max-height: 13vh;
+  }
+
+  .btmi-hover-image {
+    max-height: 13vh;
+  }
+
+  .btmi-hover-image:hover {
+    max-height: 13vh;
+  }
+
+  .jr-image {
+    max-height: 9vh;
+  }
+
+  .jr-hover-image {
+    max-height: 9vh;
+  }
+
+  .jr-hover-image:hover {
+    max-height: 9vh;
+  }
+
+  .av-image {
+    max-height: 15vh;
+  }
+
+  .av-hover-image {
+    max-height: 15vh;
+  }
+
+  .av-hover-image:hover {
+    max-height: 15vh;
+  }
 }
 
 @media (min-width:1025px) {
@@ -318,6 +377,58 @@ export default {
   .bands-second-row-container {
     flex-direction: row;
   }
+
+  .bands-header-image {
+    max-height: 13vh;
+  }
+
+  .asob-image {
+    max-height: 30vh;
+  }
+
+  .asob-hover-image {
+    max-height: 30vh;
+  }
+
+  .asob-hover-image:hover {
+    max-height: 30vh;
+  }
+
+  .btmi-image {
+    max-height: 15vh;
+  }
+
+  .btmi-hover-image {
+    max-height: 15vh;
+  }
+
+  .btmi-hover-image:hover {
+    max-height: 15vh;
+  }
+
+  .jr-image {
+    max-height: 12vh;
+  }
+
+  .jr-hover-image {
+    max-height: 12vh;
+  }
+
+  .jr-hover-image:hover {
+    max-height: 12vh;
+  }
+
+  .av-image {
+    max-height: 22vh;
+  }
+
+  .av-hover-image {
+    max-height: 22vh;
+  }
+
+  .av-hover-image:hover {
+    max-height: 22vh;
+  }
 }
 
 @media (min-width:1281px) {
@@ -327,6 +438,58 @@ export default {
 
   .bands-second-row-container {
     flex-direction: row;
+  }
+
+  .bands-header-image {
+    max-height: 13vh;
+  }
+
+  .asob-image {
+    max-height: 30vh;
+  }
+
+  .asob-hover-image {
+    max-height: 30vh;
+  }
+
+  .asob-hover-image:hover {
+    max-height: 30vh;
+  }
+
+  .btmi-image {
+    max-height: 15vh;
+  }
+
+  .btmi-hover-image {
+    max-height: 15vh;
+  }
+
+  .btmi-hover-image:hover {
+    max-height: 15vh;
+  }
+
+  .jr-image {
+    max-height: 12vh;
+  }
+
+  .jr-hover-image {
+    max-height: 12vh;
+  }
+
+  .jr-hover-image:hover {
+    max-height: 12vh;
+  }
+
+  .av-image {
+    max-height: 22vh;
+  }
+
+  .av-hover-image {
+    max-height: 22vh;
+  }
+
+  .av-hover-image:hover {
+    max-height: 22vh;
   }
 }
 

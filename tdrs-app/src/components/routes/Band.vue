@@ -210,4 +210,68 @@ export default {
 .band-members-list {
   font-size: 1.2em;
 }
+
+@media (min-width:320px) {
+  .band-image.asob {
+    margin-top: -7em;
+    max-height: 19vh;
+  }
+
+  .band-image.btmi {
+    margin-top: -7em;
+    max-height: 11vh;
+  }
+
+  .band-image.jr {
+    margin-top: -7.5em;
+    max-height: 11vh;
+  }
+
+  .band-image.av {
+    margin-top: -8em;
+    max-height: 16vh;
+  }
+
+  .back-bands-image {
+    display: none;
+  }
+}
+
+@media (min-width:481px) {
+  .band-image.asob {
+    margin-top: -7em;
+    max-height: 19vh;
+  }
+
+  .band-image.btmi {
+    margin-top: -7em;
+    max-height: 11vh;
+  }
+
+  .band-image.jr {
+    margin-top: -7.5em;
+    max-height: 11vh;
+  }
+
+  .band-image.av {
+    margin-top: -8em;
+    max-height: 16vh;
+  }
+
+  .back-bands-image {
+    display: none;
+  }
+}
+
+@media (min-width:767px) {
+
+}
+
+@media (min-width:1025px) {
+
+}
+
+@media (min-width:1281px) {
+
+}
 </style>

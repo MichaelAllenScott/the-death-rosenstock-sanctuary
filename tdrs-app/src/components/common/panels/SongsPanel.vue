@@ -78,5 +78,29 @@
     opacity: .75;
     z-index: 0;
   }
+
+  @media (min-width:320px) {
+    .song-title {
+      font-size: 1em;
+    }
+  }
+
+  @media (min-width:481px) {
+    .song-title {
+      font-size: 1em;
+    }
+  }
+
+  @media (min-width:767px) {
+
+  }
+
+  @media (min-width:1025px) {
+
+  }
+
+  @media (min-width:1281px) {
+
+  }
     
 </style>

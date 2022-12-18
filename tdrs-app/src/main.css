@@ -259,11 +259,48 @@ Global Styles for all components
 }
 
 @media (min-width:320px) {
+  .panel-top {
+    margin: 1em .25em 0 .25em;
+  }
 
+  .panel-background {
+    margin: -.5em 0.5em 0 0.5em;
+  }
+
+  .collapsible-panel {
+    margin: -.25em .25em 0 .25em;
+  }
+
+  .collapsible-panel-header {
+    max-height: 5vh;
+  }
+
+  .collapsible-panel-background {
+    margin: -0.5em 0.5em 0.5em 0.5em;
+  }
 }
 
 @media (min-width:481px) {
 
+  .panel-top {
+    margin: 1em .25em 0 .25em;
+  }
+
+  .panel-background {
+    margin: -.5em 0.5em 0 0.5em;
+  }
+
+  .collapsible-panel {
+    margin: -.25em .25em 0 .25em;
+  }
+
+  .collapsible-panel-header {
+    max-height: 5vh;
+  }
+
+  .collapsible-panel-background {
+    margin: -0.5em 0.5em 0.5em 0.5em;
+  }
 }
 
 @media (min-width:767px) {

@@ -77,10 +77,10 @@
 
   @media (min-width:320px) {
     .logo-image {
-      max-height: 16vh;
+      max-height: 9vh;
     }
     .logo-image.small {
-      max-height: 8vh;
+      max-height: 9vh;
     }
     .header-icon {
       max-height: 6vh;
@@ -89,10 +89,10 @@
 
   @media (min-width:481px) {
     .logo-image {
-      max-height: 16vh;
+      max-height: 9vh;
     }
     .logo-image.small {
-      max-height: 8vh;
+      max-height: 9vh;
     }
     .header-icon {
       max-height: 6vh;
@@ -101,10 +101,10 @@
 
   @media (min-width:767px) {
     .logo-image {
-      max-height: 18vh;
+      max-height: 16vh;
     }
     .logo-image.small {
-      max-height: 11vh;
+      max-height: 13vh;
     }
   }
 
@@ -118,6 +118,12 @@
   }
 
   @media (min-width:1281px) {
+    .logo-image {
+      max-height: 20vh;
+    }
+    .logo-image.small {
+      max-height: 13vh;
+    }
   }
 
 </style>
