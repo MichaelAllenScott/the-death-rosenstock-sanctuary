@@ -169,4 +169,165 @@ export default {
   opacity: 1;
   max-height: 22vh;
 }
+
+@media (min-width:320px) {
+  .bands-first-row-container {
+    flex-direction: column;
+    align-content: space-evenly;
+  }
+
+  .bands-second-row-container {
+    flex-direction: column;
+    align-content: space-evenly;
+  }
+
+  .bands-header-image {
+    max-height: 8vh;
+    margin-top: 4em;
+  }
+
+  .asob-image {
+    max-height: 30vh;
+  }
+
+  .asob-hover-image {
+    max-height: 30vh;
+  }
+
+  .asob-hover-image:hover {
+    max-height: 30vh;
+  }
+
+  .btmi-image {
+    max-height: 15vh;
+  }
+
+  .btmi-hover-image {
+    max-height: 15vh;
+  }
+
+  .btmi-hover-image:hover {
+    max-height: 15vh;
+  }
+
+  .jr-image {
+    max-height: 12vh;
+  }
+
+  .jr-hover-image {
+    max-height: 12vh;
+  }
+
+  .jr-hover-image:hover {
+    max-height: 12vh;
+  }
+
+  .av-image {
+    max-height: 22vh;
+  }
+
+  .av-hover-image {
+    max-height: 22vh;
+  }
+
+  .av-hover-image:hover {
+    max-height: 22vh;
+  }
+}
+
+@media (min-width:481px) {
+  .bands-first-row-container {
+    flex-direction: column;
+    align-content: space-evenly;
+  }
+
+  .bands-second-row-container {
+    flex-direction: column;
+    align-content: space-evenly;
+  }
+
+  .bands-header-image {
+    max-height: 8vh;
+    margin-top: 4em;
+  }
+  
+  .asob-image {
+    max-height: 18vh;
+  }
+
+  .asob-hover-image {
+    max-height: 18vh;
+  }
+
+  .asob-hover-image:hover {
+    max-height: 18vh;
+  }
+
+  .btmi-image {
+    max-height: 8vh;
+  }
+
+  .btmi-hover-image {
+    max-height: 8vh;
+  }
+
+  .btmi-hover-image:hover {
+    max-height: 8vh;
+  }
+
+  .jr-image {
+    max-height: 6vh;
+  }
+
+  .jr-hover-image {
+    max-height: 6vh;
+  }
+
+  .jr-hover-image:hover {
+    max-height: 6vh;
+  }
+
+  .av-image {
+    max-height: 10vh;
+  }
+
+  .av-hover-image {
+    max-height: 10vh;
+  }
+
+  .av-hover-image:hover {
+    max-height: 10vh;
+  }
+}
+
+@media (min-width:767px) {
+  .bands-first-row-container {
+    flex-direction: row;
+  }
+
+  .bands-second-row-container {
+    flex-direction: row;
+  }
+}
+
+@media (min-width:1025px) {
+  .bands-first-row-container {
+    flex-direction: row;
+  }
+
+  .bands-second-row-container {
+    flex-direction: row;
+  }
+}
+
+@media (min-width:1281px) {
+  .bands-first-row-container {
+    flex-direction: row;
+  }
+
+  .bands-second-row-container {
+    flex-direction: row;
+  }
+}
+
 </style>

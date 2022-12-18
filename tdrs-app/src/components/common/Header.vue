@@ -75,4 +75,49 @@
     max-height: 13vh;
   }
 
+  @media (min-width:320px) {
+    .logo-image {
+      max-height: 16vh;
+    }
+    .logo-image.small {
+      max-height: 8vh;
+    }
+    .header-icon {
+      max-height: 6vh;
+    }
+  }
+
+  @media (min-width:481px) {
+    .logo-image {
+      max-height: 16vh;
+    }
+    .logo-image.small {
+      max-height: 8vh;
+    }
+    .header-icon {
+      max-height: 6vh;
+    }
+  }
+
+  @media (min-width:767px) {
+    .logo-image {
+      max-height: 18vh;
+    }
+    .logo-image.small {
+      max-height: 11vh;
+    }
+  }
+
+  @media (min-width:1025px) {
+    .logo-image {
+      max-height: 20vh;
+    }
+    .logo-image.small {
+      max-height: 13vh;
+    }
+  }
+
+  @media (min-width:1281px) {
+  }
+
 </style>
