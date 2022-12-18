@@ -11,6 +11,7 @@ Global Styles for all components
   --jr-purple-dark: #812da8;
   --av-blue: #19dae7;
   --av-blue-dark: #129ea8;
+
 }
 
 
@@ -255,4 +256,61 @@ Global Styles for all components
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.10);
   transform: scale(1.10) rotate(-3deg);
+}
+
+@media (min-width:320px) {
+  .panel-top {
+    margin: 1em .25em 0 .25em;
+  }
+
+  .panel-background {
+    margin: -.5em 0.5em 0 0.5em;
+  }
+
+  .collapsible-panel {
+    margin: -.25em .25em 0 .25em;
+  }
+
+  .collapsible-panel-header {
+    max-height: 5vh;
+  }
+
+  .collapsible-panel-background {
+    margin: -0.5em 0.5em 0.5em 0.5em;
+  }
+}
+
+@media (min-width:481px) {
+
+  .panel-top {
+    margin: 1em .25em 0 .25em;
+  }
+
+  .panel-background {
+    margin: -.5em 0.5em 0 0.5em;
+  }
+
+  .collapsible-panel {
+    margin: -.25em .25em 0 .25em;
+  }
+
+  .collapsible-panel-header {
+    max-height: 5vh;
+  }
+
+  .collapsible-panel-background {
+    margin: -0.5em 0.5em 0.5em 0.5em;
+  }
+}
+
+@media (min-width:767px) {
+
+}
+
+@media (min-width:1025px) {
+
+}
+
+@media (min-width:1281px) {
+
 }

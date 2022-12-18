@@ -74,5 +74,37 @@
     text-align: center;
     letter-spacing: -0.05em;
   }
+
+@media (min-width:320px) {
+  .album-container {
+    flex-direction: column;
+  }
+
+  .album-image {
+    max-height: 34vh;
+  }
+}
+
+@media (min-width:481px) {
+  .album-container {
+    flex-direction: column;
+  }
+
+  .album-image {
+    max-height: 34vh;
+  }
+}
+
+@media (min-width:767px) {
+
+}
+
+@media (min-width:1025px) {
+
+}
+
+@media (min-width:1281px) {
+
+}
     
 </style>
