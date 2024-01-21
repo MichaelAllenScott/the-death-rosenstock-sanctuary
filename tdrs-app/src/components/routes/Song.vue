@@ -155,28 +155,4 @@ export default {
   font-size: 1.3em;
   white-space: pre-line;  
 }
-
-@media (min-width:320px) {
-  .back-album-image {
-    display: none;
-  }
-}
-
-@media (min-width:481px) {
-  .back-album-image {
-    display: none;
-  }
-}
-
-@media (min-width:767px) {
-
-}
-
-@media (min-width:1025px) {
-
-}
-
-@media (min-width:1281px) {
-
-}
 </style>

@@ -169,27 +169,4 @@ export default {
   margin-bottom: -3em;
 }
 
-@media (min-width:320px) {
-  .back-band-image {
-    display: none;
-  }
-}
-
-@media (min-width:481px) {
-  .back-band-image {
-    display: none;
-  }
-}
-
-@media (min-width:767px) {
-
-}
-
-@media (min-width:1025px) {
-
-}
-
-@media (min-width:1281px) {
-
-}
 </style>
