@@ -1,9 +1,30 @@
 [
   {
+    "orderIndex": 1,
+    "name": "Built To Fail",
+    "bandAbbrv": "asob",
+    "year": 1998,
+    "ep": false
+  },
+  {
+    "orderIndex": 2,
+    "name": "Pornocracy",
+    "bandAbbrv": "asob",
+    "year": 2000,
+    "ep": false
+  },
+  {
     "orderIndex": 3,
     "name": "The Apology",
     "bandAbbrv": "asob",
     "year": 2001,
+    "ep": true
+  },
+  {
+    "orderIndex": 4,
+    "name": "All The Little Ones Are Rotting",
+    "bandAbbrv": "asob",
+    "year": 2002,
     "ep": true
   },
   {

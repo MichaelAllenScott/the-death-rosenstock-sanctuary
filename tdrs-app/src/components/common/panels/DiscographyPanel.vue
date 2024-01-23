@@ -8,7 +8,7 @@
       <div class="album-container">
         <div class="album-item" v-for="album in albums" :key="album.orderIndex">
           <img class="album-image hvr-grow-shadow-fast" :src="getAlbumUrl(album)" @click="navigateToAlbum(album.orderIndex, album)" alt="Discography">
-          <p class="album-title">{{album.name}}<br/>({{album.year}})</p>
+          <p class="album-title">{{album.name}} {{ album.ep ? "(EP)" : "" }}<br/>({{album.year}})</p>
         </div>
       </div>
     </div>
